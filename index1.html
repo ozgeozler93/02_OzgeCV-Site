@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Makbule Özge Özler</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+
+
+<body class="bg-gray-100 text-gray-800 font-sans">
+
+  <div class="flex justify-end p-4 gap-2">
+    <button onclick="changeLanguage('tr')" class="bg-white border px-3 py-1 rounded hover:bg-gray-200">🇹🇷 TR</button>
+    <button onclick="changeLanguage('en')" class="bg-white border px-3 py-1 rounded hover:bg-gray-200">🇬🇧 EN</button>
+    <button onclick="changeLanguage('fr')" class="bg-white border px-3 py-1 rounded hover:bg-gray-200">🇫🇷 FR</button>
+  </div>
+
+  <div class="max-w-3xl mx-auto text-center p-6 bg-white shadow-lg rounded-lg">
+    <img src="assets/MakbuleOzge_Ozler.png" alt="Profil Fotoğrafı"
+         class="w-32 h-32 mx-auto rounded-full border-4 border-blue-200 shadow-md mb-4"/>
+
+    <h1 class="text-3xl font-bold mb-1" data-i18n="name">Makbule Özge Özler</h1>
+    <h2 class="text-xl text-gray-600 mb-4" data-i18n="title">Araştırma Görevlisi | Web Geliştirici Adayı</h2>
+
+    <p data-i18n="intro1" class="mb-2"></p>
+    <p data-i18n="intro2" class="mb-4"></p>
+
+    <div class="text-left">
+      <h3 class="text-2xl font-semibold mt-6 mb-2" data-i18n="educationTitle">Eğitim</h3>
+      <div id="education" class="pl-4"></div>
+
+      <h3 class="text-2xl font-semibold mt-6 mb-2" data-i18n="experienceTitle">İş Deneyimi</h3>
+      <div id="experience" class="pl-4"></div>
+
+      <h3 class="text-2xl font-semibold mt-6 mb-2" data-i18n="skillsTitle">Teknik Yetenekler</h3>
+      <div id="skills" class="pl-4"></div>
+
+      <h3 class="text-2xl font-semibold mt-6 mb-2" data-i18n="interestsTitle">İlgi Alanları & Gönüllülük</h3>
+      <div id="interests" class="pl-4"></div>
+
+      <h3 class="text-2xl font-semibold mt-6 mb-2" data-i18n="contactTitle">İletişim</h3>
+      <div class="flex flex-wrap gap-3 mt-2">
+        <a href="mailto:mak.ozgeozler@gmail.com"
+           class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+           data-i18n="emailBtn">E-Posta Gönder</a>
+        <a href="assets/cv.pdf" download
+           class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">📄 CV'yi indir</a>
+        <a href="https://www.linkedin.com/in/makbuleozgeozler/"
+           class="bg-gray-800 text-white px-4 py-2 rounded hover:bg-gray-700"
+           target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://github.com/ozgeozler93"
+           class="bg-black text-white px-4 py-2 rounded hover:bg-gray-900"
+           target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="lang.js"></script>
+  <script>
+    function changeLanguage(lang) {
+      const elements = document.querySelectorAll("[data-i18n]");
+      elements.forEach(el => {
+        const key = el.getAttribute("data-i18n");
+        if (translations[lang][key]) {
+          el.textContent = translations[lang][key];
+        }
+      });
+
+      document.getElementById("education").innerHTML = translations[lang].educationList;
+      document.getElementById("experience").innerHTML = translations[lang].experienceList;
+      document.getElementById("skills").innerHTML = translations[lang].skillsList;
+      document.getElementById("interests").innerHTML = translations[lang].interestList;
+    }
+    window.onload = () => changeLanguage("tr");
+  </script>
+</body>
+
+
+
+</html>
