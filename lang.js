@@ -46,6 +46,7 @@ const translations = {
 
     contactTitle: "İletişim",
     emailBtn: "E-Posta Gönder",
+    lessonsBtn: "Almış Olduğum Dersler", // Türkçe
   },
 
   en: {
