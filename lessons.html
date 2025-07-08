@@ -46,31 +46,33 @@
     </tbody>
   </table>
 
-  <div style="text-align:center; margin-top: 30px;">
-    <a href="index.html?lang=tr">🔙 Ana Sayfa (TR)</a> |
-    <a href="index.html?lang=en">🔙 Main Page (EN)</a> |
-    <a href="index.html?lang=fr">🔙 Page d’accueil (FR)</a>
-  </div>
 
-  <script>
-    function changeLanguage(lang) {
-      const elements = document.querySelectorAll("[data-i18n]");
-      elements.forEach(el => {
-        const key = el.getAttribute("data-i18n");
-        if (translations[lang][key]) {
-          el.textContent = translations[lang][key];
-        } else if (["courseName", "courseEcts", "courseGrade"].includes(key)) {
-          el.textContent = translations[lang].courseHeaders[key.replace("course", "").toLowerCase()];
-        }
-      });
-    }
+<script src="lang.js"></script>
+<script>
+  function renderCourses(lang) {
+    const tbody = document.getElementById("courseBody");
+    const headers = translations[lang].courseHeaders;
+    document.getElementById("courseName").innerText = headers.name;
+    document.getElementById("courseEcts").innerText = headers.ects;
+    document.getElementById("courseGrade").innerText = headers.grade;
 
-    window.onload = () => {
-      const urlParams = new URLSearchParams(window.location.search);
-      const lang = urlParams.get('lang') || 'tr';
-      changeLanguage(lang);
-    };
-  </script>
+    tbody.innerHTML = "";
+    translations[lang].lessons.forEach(course => {
+      const row = `<tr>
+        <td>${course.name}</td>
+        <td>${course.ects}</td>
+        <td>${course.grade}</td>
+      </tr>`;
+      tbody.innerHTML += row;
+    });
+  }
+
+  window.onload = () => {
+    const lang = localStorage.getItem("lang") || "tr";
+    renderCourses(lang);
+  };
+</script>
+
 
 </body>
 </html>

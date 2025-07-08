@@ -74,26 +74,32 @@
     </div>
   </div>
 
-  <script src="lang.js"></script>
-  <script>
-    function changeLanguage(lang) {
-      const elements = document.querySelectorAll("[data-i18n]");
-      elements.forEach(el => {
-        const key = el.getAttribute("data-i18n");
-        if (translations[lang][key]) {
-          el.textContent = translations[lang][key];
-        }
-      });
+<script src="lang.js"></script>
+<script>
+  function changeLanguage(lang) {
+    localStorage.setItem("lang", lang);
 
-      document.getElementById("education").innerHTML = translations[lang].educationList;
-      document.getElementById("experience").innerHTML = translations[lang].experienceList;
-      document.getElementById("skills").innerHTML = translations[lang].skillsList;
-      document.getElementById("interests").innerHTML = translations[lang].interestList;
-      document.getElementById("lessonsBtn").innerText = translations[lang].lessonsBtn;
+    const elements = document.querySelectorAll("[data-i18n]");
+    elements.forEach(el => {
+      const key = el.getAttribute("data-i18n");
+      if (translations[lang][key]) {
+        el.textContent = translations[lang][key];
+      }
+    });
 
-    }
-    window.onload = () => changeLanguage("tr");
-  </script>
+    document.getElementById("education").innerHTML = translations[lang].educationList;
+    document.getElementById("experience").innerHTML = translations[lang].experienceList;
+    document.getElementById("skills").innerHTML = translations[lang].skillsList;
+    document.getElementById("interests").innerHTML = translations[lang].interestList;
+    document.getElementById("lessonsBtn").innerText = translations[lang].lessonsBtn;
+  }
+
+  window.onload = () => {
+    const lang = localStorage.getItem("lang") || "tr";
+    changeLanguage(lang);
+  };
+</script>
+
 </body>
 
 
