@@ -40,19 +40,6 @@ const translations = {
     `,
     contactTitle: "İletişim",
     emailBtn: "E-Posta Gönder",
-    lessonsBtn: "Almış Olduğum Dersler",
-    courseHeaders: {
-      name: "Ders Adı",
-      ects: "AKTS",
-      grade: "Not",
-    },
-    lessons: [
-      { name: "Algoritma Analizi", ects: 5, grade: "AA" },
-      { name: "Yapay Zeka", ects: 5, grade: "BA" },
-      { name: "Makine Öğrenmesi", ects: 5, grade: "AA" },
-      { name: "Biyomedikal Görüntü İşleme", ects: 5, grade: "AA" },
-      { name: "İleri Programlama", ects: 5, grade: "BA" },
-    ],
   },
 
   en: {
@@ -96,19 +83,6 @@ const translations = {
     `,
     contactTitle: "Contact",
     emailBtn: "Send Email",
-    lessonsBtn: "Courses I Took",
-    courseHeaders: {
-      name: "Course Name",
-      ects: "ECTS",
-      grade: "Grade",
-    },
-    lessons: [
-      { name: "Algorithm Analysis", ects: 5, grade: "AA" },
-      { name: "Artificial Intelligence", ects: 5, grade: "BA" },
-      { name: "Machine Learning", ects: 5, grade: "AA" },
-      { name: "Biomedical Image Processing", ects: 5, grade: "AA" },
-      { name: "Advanced Programming", ects: 5, grade: "BA" },
-    ],
   },
 
   fr: {
@@ -152,18 +126,6 @@ const translations = {
     `,
     contactTitle: "Contact",
     emailBtn: "Envoyer un e-mail",
-    lessonsBtn: "Cours Suivis",
-    courseHeaders: {
-      name: "Nom du cours",
-      ects: "ECTS",
-      grade: "Note",
-    },
-    lessons: [
-      { name: "Analyse d’algorithmes", ects: 5, grade: "AA" },
-      { name: "Intelligence Artificielle", ects: 5, grade: "BA" },
-      { name: "Apprentissage automatique", ects: 5, grade: "AA" },
-      { name: "Traitement d’images biomédicales", ects: 5, grade: "AA" },
-      { name: "Programmation avancée", ects: 5, grade: "BA" },
-    ],
+
   },
 };
