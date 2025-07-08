@@ -2,88 +2,75 @@
 <html lang="tr">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Derslerim | Makbule Özge Özler</title>
+  <title>Ders Listesi</title>
   <script src="lang.js"></script>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    table {
+      border-collapse: collapse;
+      width: 90%;
+      margin: 20px auto;
+    }
+    th, td {
+      border: 1px solid #999;
+      padding: 8px;
+      text-align: center;
+    }
+    th {
+      background-color: #f0f0f0;
+    }
+  </style>
 </head>
-<body class="bg-gray-50 text-gray-900 font-sans">
-  <div class="max-w-5xl mx-auto p-6">
-    <h1 class="text-4xl font-bold text-center text-blue-800 mb-10 data-i18n="lessonsTitle" ">Derslerim</h1>
+<body>
 
-    <!-- YTU -->
-    <section class="mb-10">
-      <h2 class="text-2xl font-semibold text-blue-700 mb-4 data-i18n="ytuTitle ">Yıldız Teknik Üniversitesi – Bilgisayar Mühendisliği (Doktora)</h2>
-      <table class="w-full table-auto border border-gray-300">
-        <thead class="bg-gray-200">
-          <tr>
-            <th class="p-2 border" data-i18n="courseName" >Ders Adı</th>
-            <th class="p-2 border" data-i18n="courseEcts" >AKTS</th>
-            <th class="p-2 border" data-i18n="courseGrade" >Not</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr class="hover:bg-gray-100"><td class="p-2 border">Bilgisayar Donanımı</td><td class="p-2 border">7.5</td><td class="p-2 border">CB</td></tr>
-          <tr class="hover:bg-gray-100"><td class="p-2 border">İşletim Sistemleri</td><td class="p-2 border">6</td><td class="p-2 border">CC</td></tr>
-          <tr class="hover:bg-gray-100"><td class="p-2 border">Veritabanı Yönetimi</td><td class="p-2 border">8</td><td class="p-2 border">CC</td></tr>
-          <tr class="hover:bg-gray-100"><td class="p-2 border">Yazılım Mühendisliği</td><td class="p-2 border">9</td><td class="p-2 border">BB</td></tr>
-          <tr class="hover:bg-gray-100"><td class="p-2 border">Biyomedikal İşaret ve Görüntü İşleme</td><td class="p-2 border">6</td><td class="p-2 border">CC</td></tr>
-          <tr class="hover:bg-gray-100"><td class="p-2 border">Nesneye Dayalı Tasarım ve Modelleme</td><td class="p-2 border">7.5</td><td class="p-2 border">BB</td></tr>
-          <tr class="hover:bg-gray-100"><td class="p-2 border">Mobil Teknolojiler İçin Veri İşleme Teknikleri</td><td class="p-2 border">7.5</td><td class="p-2 border">BB</td></tr>
-          <tr class="hover:bg-gray-100"><td class="p-2 border">İleri Optimizasyon</td><td class="p-2 border">7.5</td><td class="p-2 border">BB</td></tr>
-          <tr class="hover:bg-gray-100"><td class="p-2 border">Robotlar</td><td class="p-2 border">7.5</td><td class="p-2 border">BB</td></tr>
-        </tbody>
-      </table>
-    </section>
+  <h1 style="text-align:center;" data-i18n="lessonsTitle">Almış Olduğum Dersler</h1>
 
-    <!-- GSU -->
-    <section class="mb-10">
-      <h2 class="text-2xl font-semibold text-blue-700 mb-4 data-i18n="gsuTitle ">Galatasaray Üniversitesi – Endüstri Mühendisliği (YL & Doktora)</h2>
-      <table class="w-full table-auto border border-gray-300">
-        <thead class="bg-gray-200">
-          <tr>
-            <th class="p-2 border" data-i18n="courseName" >Ders Adı</th>
-            <th class="p-2 border" data-i18n="courseEcts" >AKTS</th>
-            <th class="p-2 border" data-i18n="courseGrade" >Not</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr class="hover:bg-gray-100"><td class="p-2 border">Doğrusal Optimizasyon</td><td class="p-2 border">6</td><td class="p-2 border">CB</td></tr>
-          <tr class="hover:bg-gray-100"><td class="p-2 border">Advanced Engineering Economy</td><td class="p-2 border">6</td><td class="p-2 border">BB</td></tr>
-          <tr class="hover:bg-gray-100"><td class="p-2 border">İleri İstatistiksel Modelleme</td><td class="p-2 border">6</td><td class="p-2 border">AA</td></tr>
-          <tr class="hover:bg-gray-100"><td class="p-2 border">Yapay Sinir Ağları</td><td class="p-2 border">6</td><td class="p-2 border">BA</td></tr>
-          <tr class="hover:bg-gray-100"><td class="p-2 border">Veri Madenciliği</td><td class="p-2 border">6</td><td class="p-2 border">BB</td></tr>
-          <tr class="hover:bg-gray-100"><td class="p-2 border">Karar Analizi</td><td class="p-2 border">6</td><td class="p-2 border">BA</td></tr>
-          <tr class="hover:bg-gray-100"><td class="p-2 border">Doğrusal Olmayan Optimizasyon</td><td class="p-2 border">8</td><td class="p-2 border">BB</td></tr>
-          <tr class="hover:bg-gray-100"><td class="p-2 border">Research Topics in IE & OR</td><td class="p-2 border">8</td><td class="p-2 border">CB</td></tr>
-          <tr class="hover:bg-gray-100"><td class="p-2 border">Complex Network Analysis</td><td class="p-2 border">6</td><td class="p-2 border">BA</td></tr>
-          <tr class="hover:bg-gray-100"><td class="p-2 border">Stokastik Süreçler</td><td class="p-2 border">8</td><td class="p-2 border">CB</td></tr>
-        </tbody>
-      </table>
-    </section>
+  <table>
+    <thead>
+      <tr>
+        <th data-i18n="courseName">Ders Adı</th>
+        <th data-i18n="courseEcts">AKTS</th>
+        <th data-i18n="courseGrade">Not</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Data Structures and Algorithms</td>
+        <td>6</td>
+        <td>AA</td>
+      </tr>
+      <tr>
+        <td>Cryptography</td>
+        <td>5</td>
+        <td>BA</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div style="text-align:center; margin-top: 30px;">
+    <a href="index.html?lang=tr">🔙 Ana Sayfa (TR)</a> |
+    <a href="index.html?lang=en">🔙 Main Page (EN)</a> |
+    <a href="index.html?lang=fr">🔙 Page d’accueil (FR)</a>
   </div>
 
-
   <script>
-  function changeLanguage(lang) {
-    const elements = document.querySelectorAll("[data-i18n]");
-    elements.forEach(el => {
-      const key = el.getAttribute("data-i18n");
-      if (translations[lang][key]) {
-        el.textContent = translations[lang][key];
-      } else if (["courseName", "courseEcts", "courseGrade"].includes(key)) {
-        el.textContent = translations[lang].courseHeaders[key.replace("course", "").toLowerCase()];
-      }
-    });
-  }
+    function changeLanguage(lang) {
+      const elements = document.querySelectorAll("[data-i18n]");
+      elements.forEach(el => {
+        const key = el.getAttribute("data-i18n");
+        if (translations[lang][key]) {
+          el.textContent = translations[lang][key];
+        } else if (["courseName", "courseEcts", "courseGrade"].includes(key)) {
+          el.textContent = translations[lang].courseHeaders[key.replace("course", "").toLowerCase()];
+        }
+      });
+    }
 
-  window.onload = () => {
-    const urlParams = new URLSearchParams(window.location.search);
-    const lang = urlParams.get('lang') || 'tr';  // URL'den ?lang=en gibi bir şey geldiyse
-    changeLanguage(lang);
-  };
-</script>
-
+    window.onload = () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const lang = urlParams.get('lang') || 'tr';
+      changeLanguage(lang);
+    };
+  </script>
 
 </body>
 </html>

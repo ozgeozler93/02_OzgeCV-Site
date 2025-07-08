@@ -17,7 +17,7 @@ const translations = {
     experienceTitle: "İş Deneyimi",
     experienceList: `
       <div class="entry-line">👩‍🏫 İstanbul Nişantaşı Üniversitesi – Araştırma Görevlisi (Mayis 2025 –...)</div>
-      <div class="entry-line">🏢 BSH – Graduate Project Student (Ocak 2024 – Subat2025)</div>
+      <div class="entry-line">🏢 BSH – Graduate Project Student (Ocak 2024 – Subat 2025)</div>
       <div class="entry-line">💼 Selco Consulting – Yazılım Danışmanı (Ocak 2023 - Kasim 2023)</div>
       <div class="entry-line">💰 Madame Coco – Bölgesel Fiyatlandırma Uzmanı (Agustos 2022 - Ocak 2023)</div>
       <div class="entry-line">🔬 G Tech – Ar-Ge Mühendisi (Eylul 2021 – Agustos 2022)</div>
@@ -46,17 +46,14 @@ const translations = {
 
     contactTitle: "İletişim",
     emailBtn: "E-Posta Gönder",
-    lessonsBtn: "Almış Olduğum Dersler", // Türkçe
-    ytuTitle: "Yıldız Teknik Üniversitesi – Bilgisayar Mühendisliği (Doktora)",
-    gsuTitle: "Galatasaray Üniversitesi – Endüstri Mühendisliği (Yüksek Lisans & Doktora)",
+    lessonsBtn: "Almış Olduğum Dersler",
+
     courseHeaders: {
       name: "Ders Adı",
       ects: "AKTS",
       grade: "Not"
     }
-    
   },
-
 
   en: {
     name: "Makbule Özge Özler",
@@ -105,15 +102,13 @@ const translations = {
 
     contactTitle: "Contact",
     emailBtn: "Send Email",
-    lessonsBtn: "Courses I Took",        // İngilizce
-    ytuTitle: "Yildiz Technical University – Computer Engineering (PhD)",
-    gsuTitle: "Galatasaray University – Industrial Engineering (MSc & PhD)",
+    lessonsBtn: "Courses I Took",
+
     courseHeaders: {
       name: "Course Name",
       ects: "ECTS",
       grade: "Grade"
-  }
-
+    }
   },
 
   fr: {
@@ -163,15 +158,12 @@ const translations = {
 
     contactTitle: "Contact",
     emailBtn: "Envoyer un e-mail",
-    lessonsBtn: "Cours Suivis",          // Fransızca
-    ytuTitle: "Université Technique Yildiz – Informatique (Doctorat)",
-    gsuTitle: "Université Galatasaray – Génie Industriel (Master & Doctorat)",
+    lessonsBtn: "Cours Suivis",
+
     courseHeaders: {
       name: "Nom du cours",
       ects: "ECTS",
       grade: "Note"
     }
-
-    
   }
 };
