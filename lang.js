@@ -47,7 +47,16 @@ const translations = {
     contactTitle: "İletişim",
     emailBtn: "E-Posta Gönder",
     lessonsBtn: "Almış Olduğum Dersler", // Türkçe
+    ytuTitle: "Yıldız Teknik Üniversitesi – Bilgisayar Mühendisliği (Doktora)",
+    gsuTitle: "Galatasaray Üniversitesi – Endüstri Mühendisliği (Yüksek Lisans & Doktora)",
+    courseHeaders: {
+      name: "Ders Adı",
+      ects: "AKTS",
+      grade: "Not"
+    }
+    
   },
+
 
   en: {
     name: "Makbule Özge Özler",
@@ -97,6 +106,13 @@ const translations = {
     contactTitle: "Contact",
     emailBtn: "Send Email",
     lessonsBtn: "Courses I Took",        // İngilizce
+    ytuTitle: "Yildiz Technical University – Computer Engineering (PhD)",
+    gsuTitle: "Galatasaray University – Industrial Engineering (MSc & PhD)",
+    courseHeaders: {
+      name: "Course Name",
+      ects: "ECTS",
+      grade: "Grade"
+  }
 
   },
 
@@ -148,6 +164,13 @@ const translations = {
     contactTitle: "Contact",
     emailBtn: "Envoyer un e-mail",
     lessonsBtn: "Cours Suivis",          // Fransızca
+    ytuTitle: "Université Technique Yildiz – Informatique (Doctorat)",
+    gsuTitle: "Université Galatasaray – Génie Industriel (Master & Doctorat)",
+    courseHeaders: {
+      name: "Nom du cours",
+      ects: "ECTS",
+      grade: "Note"
+    }
 
     
   }
