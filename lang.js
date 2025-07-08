@@ -95,6 +95,8 @@ const translations = {
 
     contactTitle: "Contact",
     emailBtn: "Send Email",
+    lessonsBtn: "Courses I Took",        // İngilizce
+
   },
 
   fr: {
@@ -144,5 +146,8 @@ const translations = {
 
     contactTitle: "Contact",
     emailBtn: "Envoyer un e-mail",
+    lessonsBtn: "Cours Suivis",          // Fransızca
+
+    
   }
 };
