@@ -4,6 +4,7 @@ body {
   margin: 0;
   padding: 0;
   color: #2d3436;
+  text-align: center;
 }
 
 .container {
@@ -105,6 +106,27 @@ h3 {
   text-align: left;
 }
 
+.links {
+  margin-top: 20px;
+}
+
+.links a {
+  margin: 0 10px;
+  color: #0077cc;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+
+.links a:hover {
+  text-decoration: underline;
+}
+
+
+p {
+  font-size: 1.2em;
+  color: #666;
+}
 
 @media (max-width: 600px) {
   .container {
