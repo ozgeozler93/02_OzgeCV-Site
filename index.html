@@ -154,6 +154,7 @@ const cityCoordinates = {
 };
 
 function updateMap(city) {
+  console.log("🗺️ updateMap çağrıldı:", city);
   const coords = cityCoordinates[city];
   if (!coords) return;
 
@@ -170,36 +171,50 @@ function updateMap(city) {
   iframe.width = "100%";
   iframe.height = "280";
   iframe.frameBorder = "0";
-  iframe.src = `https://embed.windy.com/embed2.html?lat=${lat}&lon=${lon}&detailLat=${lat}&detailLon=${lon}&width=650&height=280&zoom=7&level=surface&overlay=wind&product=ecmwf&menu=&message=true&marker=true&calendar=now&pressure=&type=map&location=coordinates&detail=true&metricWind=default&metricTemp=%C2%B0C&radarRange=-1`;
+
+    // Cache buster (tarih saat)
+    const timestamp = new Date().getTime();
+
+    iframe.src = `https://embed.windy.com/embed2.html?lat=${lat}&lon=${lon}&detailLat=${lat}&detailLon=${lon}&zoom=7&level=surface&overlay=wind&product=ecmwf&menu=&message=true&marker=true&calendar=now&pressure=&type=map&location=coordinates&detail=true&metricWind=default&metricTemp=%C2%B0C&radarRange=-1&_=${timestamp}`;
+
 
   // Haritayı yeniden ekle
   mapContainer.appendChild(iframe);
 }
 
 
-
-
 async function getWeather(city) {
+  console.log("🌤️ getWeather çağrıldı:", city);
   const display = document.getElementById("weatherDisplay");
   display.innerHTML = "⏳ Yükleniyor...";
+
   try {
-    const resp = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}&lang=tr`);
-    const data = await resp.json();
-    console.log("Fetched data:", data);
+    const response = await fetch(
+      `https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(city)}&units=metric&appid=${apiKey}&lang=tr`
+    );
+
+    const data = await response.json();
+    console.log("🌤️ Veri:", data);
+
     if (data.cod !== 200) throw new Error(data.message);
-    const t = data.main.temp;
-    const d = data.weather[0].description;
-    console.log(city, t, d);
+
+    const temperature = data.main.temp;
+    const description = data.weather[0].description;
+    const icon = data.weather[0].icon;
+
     display.innerHTML = `
       <div class="flex justify-center items-center gap-2">
-        <img src="https://openweathermap.org/img/wn/${data.weather[0].icon}.png" alt="${d}" class="w-6 h-6" />
-        <span>${city}: ${t}°C - ${d}</span>
+        <img src="https://openweathermap.org/img/wn/${icon}.png" alt="${description}" class="w-6 h-6" />
+        <span>${city}: ${temperature}°C - ${description}</span>
       </div>`;
-  } catch (e) {
-    console.error("Hata:", e);
+  } catch (error) {
+    console.error("❌ Hava durumu hatası:", error);
     display.innerHTML = "❌ Hava durumu alınamadı.";
   }
 }
+
+
+
 
 
 
@@ -221,14 +236,19 @@ document.addEventListener("DOMContentLoaded", function () {
   changeLanguage(lang);
 
   const citySelect = document.getElementById("citySelect");
+  console.log("🔽 citySelect bulundu mu:", !!citySelect);
+
 
   if (citySelect) {
-    getWeather(citySelect.value);
-    updateMap(citySelect.value);
+    // Varsayılan seçimi yakalayarak düzgün başlat
+    const selectedCity = citySelect.options[citySelect.selectedIndex].value;
+    getWeather(selectedCity);
+    updateMap(selectedCity);
 
     citySelect.addEventListener("change", function () {
-      getWeather(this.value);
-      updateMap(this.value);
+      const selected = this.options[this.selectedIndex].value;
+      getWeather(selected);
+      updateMap(selected);
 
     });
   } else {
