@@ -132,54 +132,28 @@
 <script>
   const apiKey = "580b3076ca701a2dd2b6eb503671f312";
 
-
 async function getWeather(city) {
   const display = document.getElementById("weatherDisplay");
   display.innerHTML = "⏳ Yükleniyor...";
-
   try {
-    const response = await fetch(
-      `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}&lang=tr`
-    );
-    const data = await response.json();
-
-    if (data.cod !== 200 || !data.weather || !data.main) {
-      throw new Error("Geçersiz veri");
-    }
-
-    const iconUrl = `https://openweathermap.org/img/wn/${data.weather[0].icon}.png`;
-    const temp = data.main.temp;
-    const description = data.weather[0].description;
-
+    const resp = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}&lang=tr`);
+    const data = await resp.json();
+    console.log("Fetched data:", data);
+    if (data.cod !== 200) throw new Error(data.message);
+    const t = data.main.temp;
+    const d = data.weather[0].description;
+    console.log(city, t, d);
     display.innerHTML = `
       <div class="flex justify-center items-center gap-2">
-        <img src="${iconUrl}" alt="${description}" class="w-6 h-6" />
-        <span class="text-gray-800">${city}: ${temp}°C - ${description}</span>
-      </div>
-    `;
-  } catch (error) {
-    console.warn("🌩️ Hava durumu alınamadı:", error);
-
-    // Fallback veri
-    const fallback = {
-      Istanbul: { temp: 25, description: "Güneşli ☀️" },
-      Ankara: { temp: 23, description: "Parçalı Bulutlu ⛅" },
-      Izmir: { temp: 27, description: "Sıcak 🔥" },
-      Paris: { temp: 22, description: "Yağmurlu 🌧️" },
-      "New York": { temp: 26, description: "Nemli ☁️" },
-      Tokyo: { temp: 28, description: "Açık 🌞" }
-    };
-
-    const fallbackData = fallback[city] || { temp: "??", description: "Veri yok" };
-
-    display.innerHTML = `
-      <div class="text-sm text-red-500 mb-1">Gerçek zamanlı veri alınamadı. Varsayılan değerler gösteriliyor.</div>
-      <div class="flex justify-center items-center gap-2">
-        <span class="text-gray-800">${city}: ${fallbackData.temp}°C - ${fallbackData.description}</span>
-      </div>
-    `;
+        <img src="https://openweathermap.org/img/wn/${data.weather[0].icon}.png" alt="${d}" class="w-6 h-6" />
+        <span>${city}: ${t}°C - ${d}</span>
+      </div>`;
+  } catch (e) {
+    console.error("Hata:", e);
+    display.innerHTML = "❌ Hava durumu alınamadı.";
   }
 }
+
 
 
 
