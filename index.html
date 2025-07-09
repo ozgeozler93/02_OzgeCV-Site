@@ -154,20 +154,28 @@ const cityCoordinates = {
 };
 
 function updateMap(city) {
-  // const mapDiv = document.getElementById("weatherMap");
   const coords = cityCoordinates[city];
-
   if (!coords) return;
 
   const { lat, lon } = coords;
-  const iframe = document.getElementById("windyIframe");
+  const mapContainer = document.getElementById("weatherMap");
 
-  if (iframe) {
-    iframe.src = `https://embed.windy.com/embed2.html?lat=${lat}&lon=${lon}&detailLat=${lat}&detailLon=${lon}&width=650&height=280&zoom=7&level=surface&overlay=wind&product=ecmwf&menu=&message=true&marker=true&calendar=now&pressure=&type=map&location=coordinates&detail=true&metricWind=default&metricTemp=%C2%B0C&radarRange=-1`;
-  }
+  // Önce iframe'i kaldır
+  const oldIframe = document.getElementById("windyIframe");
+  if (oldIframe) oldIframe.remove();
 
+  // Yeni iframe oluştur
+  const iframe = document.createElement("iframe");
+  iframe.id = "windyIframe";
+  iframe.width = "100%";
+  iframe.height = "280";
+  iframe.frameBorder = "0";
+  iframe.src = `https://embed.windy.com/embed2.html?lat=${lat}&lon=${lon}&detailLat=${lat}&detailLon=${lon}&width=650&height=280&zoom=7&level=surface&overlay=wind&product=ecmwf&menu=&message=true&marker=true&calendar=now&pressure=&type=map&location=coordinates&detail=true&metricWind=default&metricTemp=%C2%B0C&radarRange=-1`;
 
+  // Haritayı yeniden ekle
+  mapContainer.appendChild(iframe);
 }
+
 
 
 
