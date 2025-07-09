@@ -7,6 +7,11 @@ body {
   text-align: center;
 }
 
+
+.bg-blue-600 { background-color: #2563eb; }
+.text-white { color: white; }
+.text-gray-800 { color: #1f2937; }
+
 .container {
   max-width: 800px;
   margin: 50px auto;
