@@ -41,6 +41,7 @@ const translations = {
     contactTitle: "İletişim",
     emailBtn: "E-Posta Gönder",
 
+    playTitle: "En Son İzlediğim Tiyatro Oyunları", // Türkçe
     contactFormTitle: "İletişim Formu",
     formName: "Adınız",
     formEmail: "E‑posta",
@@ -91,6 +92,7 @@ const translations = {
     contactTitle: "Contact",
     emailBtn: "Send Email",
 
+    playTitle: "Recent Theatre Plays I've Watched", // İngilizce
     contactFormTitle: "Contact Form",
     formName: "Your Name",
     formEmail: "Email",
@@ -141,6 +143,8 @@ const translations = {
     contactTitle: "Contact",
     emailBtn: "Envoyer un e-mail",
 
+
+    playTitle: "Dernières pièces de théâtre que j’ai vues", // Fransızca
     contactFormTitle: "Formulaire de Contact",
     formName: "Votre nom",
     formEmail: "Email",

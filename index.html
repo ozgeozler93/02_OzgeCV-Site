@@ -323,7 +323,7 @@ document.addEventListener("DOMContentLoaded", function () {
 </script>
 
 <section id="plays" data-aos="fade-up" class="max-w-3xl mx-auto p-6 bg-white rounded shadow-md mt-6">
-  <h3 class="text-2xl font-semibold mb-4" >En Son İzlediğim Tiyatro Oyunları</h3>
+  <h3 class="text-2xl font-semibold mb-4" data-i18n="playTitle"  >En Son İzlediğim Tiyatro Oyunları</h3>
   <ul class="list-disc list-inside space-y-1">
     <li><strong> Diksin: Buyuk Sans</strong> – Yonetmen: Kemal Aydogdu (30 Haziran 2025)</li>
     <li><strong> Babami Kim Oldurdu?</strong> – Yonetmen: Kemal Aydogdu (18 Haziran 2025)</li>
@@ -334,17 +334,18 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 <section id="contact" class="max-w-xl mx-auto p-6 bg-white rounded shadow-md" data-aos="fade-up">
-  <h3 class="text-2xl font-semibold mb-4" data-i18n-placeholder="contactFormTitle">İletişim Formu</h3>
+  <h3 class="text-2xl font-semibold mb-4" data-i18n="contactFormTitle">İletişim Formu</h3>
   <form id="contactForm" class="space-y-4">
-    <input type="text" name="name" placeholder="Adınız" data-i18n-placeholder  data-i18n="contactFormTitle" class="w-full px-3 py-2 border rounded" required>
-    <input type="email" name="email" placeholder="E‑posta" data-i18n-placeholder  data-i18n="contactFormTitle"  class="w-full px-3 py-2 border rounded" required>
-    <textarea name="message" rows="4" placeholder="Mesajınız…" data-i18n-placeholder  data-i18n="contactFormTitle"  class="w-full px-3 py-2 border rounded" required></textarea>
-    <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+    <input type="text" name="name" data-i18n-placeholder="formName" placeholder="Adınız" class="w-full px-3 py-2 border rounded" required>
+    <input type="email" name="email" data-i18n-placeholder="formEmail" placeholder="E‑posta" class="w-full px-3 py-2 border rounded" required>
+    <textarea name="message" rows="4" data-i18n-placeholder="formMessage" placeholder="Mesajınız…" class="w-full px-3 py-2 border rounded" required></textarea>
+    <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600" data-i18n="formSubmitBtn">
       Gönder
     </button>
   </form>
   <p id="formMsg" class="text-sm mt-2"></p>
 </section>
+
 
 
 
