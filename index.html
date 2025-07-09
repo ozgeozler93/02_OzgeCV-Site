@@ -131,73 +131,56 @@
 
 <script src="lang.js"></script>
 <script>
-  function changeLanguage(lang) {
-    localStorage.setItem("lang", lang);
 
-    const elements = document.querySelectorAll("[data-i18n]");
-    elements.forEach(el => {
-      const key = el.getAttribute("data-i18n");
-      if (translations[lang][key]) {
-        el.textContent = translations[lang][key];
-      }
-    });
+function changeLanguage(lang) {
+  localStorage.setItem("lang", lang);
 
-    document.getElementById("education").innerHTML = translations[lang].educationList;
-    document.getElementById("experience").innerHTML = translations[lang].experienceList;
-    document.getElementById("skills").innerHTML = translations[lang].skillsList;
-    document.getElementById("interests").innerHTML = translations[lang].interestList;
+  // Tüm metinleri güncelle
+  document.querySelectorAll("[data-i18n]").forEach(el => {
+    const key = el.getAttribute("data-i18n");
+    if (translations[lang][key]) {
+      el.textContent = translations[lang][key];
+    }
+  });
 
-    document.title = translations[lang].name;
+  // Liste içeriklerini güncelle
+  document.getElementById("education").innerHTML = translations[lang].educationList;
+  document.getElementById("experience").innerHTML = translations[lang].experienceList;
+  document.getElementById("skills").innerHTML = translations[lang].skillsList;
+  document.getElementById("interests").innerHTML = translations[lang].interestList;
 
+  // Sayfa başlığını güncelle
+  document.title = translations[lang].name;
 
-    // Aktif buton vurgusu
-    document.querySelectorAll("button").forEach(btn => {
-      if (btn.textContent.includes(lang.toUpperCase())) {
-        btn.classList.add("bg-blue-600", "text-white");
-        btn.classList.remove("bg-white", "text-gray-800");
-      } else {
-        btn.classList.remove("bg-blue-600", "text-white");
-        btn.classList.add("bg-white", "text-gray-800");
-      }
+  // Aktif dil butonunu vurgula
+  document.querySelectorAll("button").forEach(btn => {
+    if (btn.textContent.includes(lang.toUpperCase())) {
+      btn.classList.add("bg-blue-600", "text-white");
+      btn.classList.remove("bg-white", "text-gray-800");
+    } else {
+      btn.classList.remove("bg-blue-600", "text-white");
+      btn.classList.add("bg-white", "text-gray-800");
+    }
+  });
 
-        const key = el.getAttribute("data-i18n-placeholder");
-  if (translations[lang][key]) {
-    el.setAttribute("placeholder", translations[lang][key]);
-  }
-});
+  // Placeholder'ları çevir
+  document.querySelectorAll("[data-i18n-placeholder]").forEach(el => {
+    const key = el.getAttribute("data-i18n-placeholder");
+    if (translations[lang][key]) {
+      el.setAttribute("placeholder", translations[lang][key]);
+    }
+  });
 
-
-    document.querySelectorAll("[data-i18n-placeholder]").forEach(el => {
-      const key = el.getAttribute("data-i18n-placeholder");
-      if (translations[lang][key]) {
-        el.setAttribute("placeholder", translations[lang][key]);
-      }
-    });
-
-
-    // Gönderildi mesajı için
-    document.getElementById('contactForm').addEventListener('submit', e => {
+  // Form mesajı ve reset
+  const contactForm = document.getElementById('contactForm');
+  if (contactForm) {
+    contactForm.addEventListener('submit', e => {
       e.preventDefault();
-      const form = e.target;
       document.getElementById('formMsg').textContent = translations[lang].formSent;
-      form.reset();
-    });
-
-
-
-    document.getElementById('contactForm').addEventListener('submit', e => {
-      e.preventDefault();
-      const form = e.target;
-      // Burada form verisini API'ye veya e‑posta servisine gönder
-      document.getElementById('formMsg').textContent = 'Mesajınız gönderildi, teşekkürler 👌';
-      form.reset();
-    });
-
-
-
-
-
+      contactForm.reset();
+    }, { once: true });
   }
+}
 
 
 </script>
@@ -278,12 +261,6 @@ async function getWeather(city) {
 
 
 
-
-
-
-</script>
-
-<script>
 document.addEventListener("DOMContentLoaded", function () {
   let lang = localStorage.getItem("lang");
 
@@ -316,7 +293,8 @@ document.addEventListener("DOMContentLoaded", function () {
   } else {
     console.error("Şehir seçimi elementi bulunamadı!");
   }
-});
+}
+);
 
 
 
@@ -334,7 +312,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 <section id="contact" class="max-w-xl mx-auto p-6 bg-white rounded shadow-md mt-12" data-aos="fade-up">
-  <h3 class="text-2xl font-semibold mb-4" data-i18n="contactFormTitle">İletişim Formu</h3>
+<h3 class="text-2xl font-semibold mb-4 flex items-center gap-2"><span>📬</span> <span data-i18n="contactFormTitle">İletişim Formu</span></h3>
   <form id="contactForm" class="space-y-4">
     <input type="text" name="name" data-i18n-placeholder="formName" placeholder="Adınız" class="w-full px-3 py-2 border rounded" required>
     <input type="email" name="email" data-i18n-placeholder="formEmail" placeholder="E‑posta" class="w-full px-3 py-2 border rounded" required>
