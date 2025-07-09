@@ -17,6 +17,33 @@
   <title>Makbule Özge Özler</title>
   <link rel="stylesheet" href="style.css" />
   <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+    #weatherMap iframe {
+      max-width: 100%;
+      border-radius: 0.75rem;
+    }
+
+    @media (max-width: 640px) {
+      #weatherMap iframe {
+        height: 220px;
+      }
+    }
+  </style>
+
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+<script type="module">
+  import { GitHub, LinkedIn, Twitter } from 'https://cdn.skypack.dev/lucide';
+  window.Lucide = { GitHub, LinkedIn, Twitter };
+</script>
+
+<div class="flex gap-4 justify-center mt-6" data-aos="fade-up">
+  <span lucide="GitHub" class="w-6 h-6 text-gray-700 hover:text-black"></span>
+  <span lucide="LinkedIn" class="w-6 h-6 text-blue-700 hover:text-blue-900"></span>
+  <span lucide="Twitter" class="w-6 h-6 text-blue-500 hover:text-blue-700"></span>
+</div>
+
 
 </head>
 
@@ -38,7 +65,7 @@
     id="windyIframe"
     width="100%" 
     height="280" 
-    src="https://embed.windy.com/embed2.html?lat=41.015&lon=28.979&detailLat=41.015&detailLon=28.979&width=650&height=280&zoom=7&level=surface&overlay=wind&product=ecmwf&menu=&message=true&marker=true&calendar=now&pressure=&type=map&location=coordinates&detail=true&metricWind=default&metricTemp=%C2%B0C&radarRange=-1"
+    src="https://embed.windy.com/embed2.html?lat=41.015&lon=28.979&detailLat=41.015&detailLon=28.979&zoom=7&level=surface&overlay=wind&product=ecmwf&menu=&message=true&marker=true&calendar=now&pressure=&type=map&location=coordinates&detail=true&metricWind=default&metricTemp=%C2%B0C&radarRange=-1"
     frameborder="0">
   </iframe>
 </div>
@@ -73,7 +100,7 @@
       <div id="education" class="pl-4"></div>
 
       <h3 class="text-2xl font-semibold mt-6 mb-2" data-i18n="experienceTitle">İş Deneyimi</h3>
-      <div id="experience" class="pl-4"></div>
+      <div data-aos="fade-up" id="experience" class="pl-4"></div>
 
       <h3 class="text-2xl font-semibold mt-6 mb-2" data-i18n="skillsTitle">Teknik Yetenekler</h3>
       <div id="skills" class="pl-4"></div>
@@ -132,7 +159,43 @@
         btn.classList.remove("bg-blue-600", "text-white");
         btn.classList.add("bg-white", "text-gray-800");
       }
+
+        const key = el.getAttribute("data-i18n-placeholder");
+  if (translations[lang][key]) {
+    el.setAttribute("placeholder", translations[lang][key]);
+  }
+});
+
+
+    document.querySelectorAll("[data-i18n-placeholder]").forEach(el => {
+      const key = el.getAttribute("data-i18n-placeholder");
+      if (translations[lang][key]) {
+        el.setAttribute("placeholder", translations[lang][key]);
+      }
     });
+
+
+    // Gönderildi mesajı için
+    document.getElementById('contactForm').addEventListener('submit', e => {
+      e.preventDefault();
+      const form = e.target;
+      document.getElementById('formMsg').textContent = translations[lang].formSent;
+      form.reset();
+    });
+
+
+
+    document.getElementById('contactForm').addEventListener('submit', e => {
+      e.preventDefault();
+      const form = e.target;
+      // Burada form verisini API'ye veya e‑posta servisine gönder
+      document.getElementById('formMsg').textContent = 'Mesajınız gönderildi, teşekkürler 👌';
+      form.reset();
+    });
+
+
+
+
 
   }
 
@@ -259,7 +322,48 @@ document.addEventListener("DOMContentLoaded", function () {
 
 </script>
 
+<section id="plays" data-aos="fade-up" class="max-w-3xl mx-auto p-6 bg-white rounded shadow-md mt-6">
+  <h3 class="text-2xl font-semibold mb-4" >En Son İzlediğim Tiyatro Oyunları</h3>
+  <ul class="list-disc list-inside space-y-1">
+    <li><strong> Diksin: Buyuk Sans</strong> – Yonetmen: Kemal Aydogdu (30 Haziran 2025)</li>
+    <li><strong> Babami Kim Oldurdu?</strong> – Yonetmen: Kemal Aydogdu (18 Haziran 2025)</li>
+    <!-- vs. -->
+  </ul>
+</section>
+
+
+
+<section id="contact" class="max-w-xl mx-auto p-6 bg-white rounded shadow-md" data-aos="fade-up">
+  <h3 class="text-2xl font-semibold mb-4" data-i18n-placeholder="contactFormTitle">İletişim Formu</h3>
+  <form id="contactForm" class="space-y-4">
+    <input type="text" name="name" placeholder="Adınız" data-i18n-placeholder  data-i18n="contactFormTitle" class="w-full px-3 py-2 border rounded" required>
+    <input type="email" name="email" placeholder="E‑posta" data-i18n-placeholder  data-i18n="contactFormTitle"  class="w-full px-3 py-2 border rounded" required>
+    <textarea name="message" rows="4" placeholder="Mesajınız…" data-i18n-placeholder  data-i18n="contactFormTitle"  class="w-full px-3 py-2 border rounded" required></textarea>
+    <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+      Gönder
+    </button>
+  </form>
+  <p id="formMsg" class="text-sm mt-2"></p>
+</section>
+
+
+
+
+<script>
+  AOS.init({ duration: 600, once: true });
+</script>
+
+<script>
+  lucide.replace(); // ikonları render eder
+</script>
+
+
 </body>
+
+
+
+
+
 </html>
 
 

@@ -40,6 +40,13 @@ const translations = {
     `,
     contactTitle: "İletişim",
     emailBtn: "E-Posta Gönder",
+
+    contactFormTitle: "İletişim Formu",
+    formName: "Adınız",
+    formEmail: "E‑posta",
+    formMessage: "Mesajınız…",
+    formSubmitBtn: "Gönder",
+    formSent: "Mesajınız gönderildi, teşekkürler 👌",
   },
 
   en: {
@@ -83,6 +90,13 @@ const translations = {
     `,
     contactTitle: "Contact",
     emailBtn: "Send Email",
+
+    contactFormTitle: "Contact Form",
+    formName: "Your Name",
+    formEmail: "Email",
+    formMessage: "Your Message...",
+    formSubmitBtn: "Send",
+    formSent: "Your message has been sent. Thank you 👌",
   },
 
   fr: {
@@ -126,6 +140,13 @@ const translations = {
     `,
     contactTitle: "Contact",
     emailBtn: "Envoyer un e-mail",
+
+    contactFormTitle: "Formulaire de Contact",
+    formName: "Votre nom",
+    formEmail: "Email",
+    formMessage: "Votre message...",
+    formSubmitBtn: "Envoyer",
+    formSent: "Votre message a été envoyé. Merci 👌",
 
   },
 };
