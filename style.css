@@ -37,6 +37,21 @@ body {
   background-color: #b2bec3;
 }
 
+.weatherWidget {
+      margin: 20px 0;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      max-width: 400px;
+      background-color: #f9f9f9;
+}
+
+.citySelect {
+      padding: 6px;
+      font-size: 14px;
+      margin-bottom: 10px;
+}
+
 .profile-img {
   width: 160px;
   height: 160px;
