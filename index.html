@@ -2,6 +2,7 @@
 <html lang="tr">
 <head>
 
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&family=Indie+Flower&display=swap" rel="stylesheet">
   <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-VTMK9VMZTH"></script>
 <script>
@@ -33,10 +34,7 @@
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
-<script type="module">
-  import { GitHub, LinkedIn, Twitter } from 'https://cdn.skypack.dev/lucide';
-  window.Lucide = { GitHub, LinkedIn, Twitter };
-</script>
+<script src="https://unpkg.com/lucide@latest"></script>
 
 <div class="flex gap-4 justify-center mt-6" data-aos="fade-up">
   <span lucide="GitHub" class="w-6 h-6 text-gray-700 hover:text-black"></span>
@@ -334,11 +332,11 @@ document.addEventListener("DOMContentLoaded", function () {
        <p class="text-xs text-gray-500 mt-1 italic">"Kostumlerin tasarımı ve enerji harikaydı."</p>
     </div>
     <div class="p-3 bg-gray-50 rounded-md border border-dashed border-gray-300">
-       <span class="font-bold text-pink-600">Diksin: Buyuk Sans</span> – Yonetmen: Kemal Aydogdu, Moda Sahnesi (30 Haziran 2025)
+       <span class="font-bold text-pink-600">Diksin: Buyuk Sans</span> – Yonetmen: Kemal Aydoğdu, Moda Sahnesi (30 Haziran 2025)
        <p class="text-xs text-gray-500 mt-1 italic">"Ilgincti."</p>
     </div>
     <div class="p-3 bg-gray-50 rounded-md border border-dashed border-gray-300">
-       <span class="font-bold text-pink-600"> Babami Kim Oldurdu?</span> – Yonetmen: Kemal Aydogdu, Moda Sahnesi (18 Haziran 2025)
+       <span class="font-bold text-pink-600"> Babami Kim Oldurdu?</span> – Yonetmen: Kemal Aydoğdu, Moda Sahnesi (18 Haziran 2025)
        <p class="text-xs text-gray-500 mt-1 italic">"Dusundurucuydu."</p>
     </div>
     </div>
@@ -395,9 +393,10 @@ function translateWord() {
 </script>
 
 <script>
-  lucide.replace(); // ikonları render eder
+  document.addEventListener("DOMContentLoaded", function() {
+    lucide.createIcons(); // Yeni versiyonlarda replace yerine createIcons tercih edilebiliyor
+  });
 </script>
-
 
 
 
