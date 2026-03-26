@@ -31,19 +31,27 @@ body {
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
-.lang-switch button {
-  margin: 0 6px;
-  padding: 6px 14px;
-  border: none;
-  background-color: #dfe6e9;
-  border-radius: 6px;
-  cursor: pointer;
-  font-weight: 500;
-  transition: background-color 0.3s;
+.lang-switch {
+  position: fixed; /* Sayfayla beraber hareket etmez, ekrana çakılı kalır */
+  top: 20px;
+  right: 20px;
+  z-index: 9999; /* Her şeyin en üstünde görünmesi için */
+  display: flex;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.9); /* Hafif şeffaf beyaz */
+  padding: 8px 12px;
+  border-radius: 50px; /* Hap şeklinde modern görünüm */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* Hafif bir gölge */
+  backdrop-filter: blur(4px); /* Arkayı hafif bulandıran cam efekti */
 }
 
-.lang-switch button:hover {
-  background-color: #b2bec3;
+.lang-switch button {
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 600;
+  border: 1px solid #ddd;
+  transition: all 0.2s;
 }
 
 .weatherWidget {
