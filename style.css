@@ -66,6 +66,7 @@ body {
 .bg-yellow-50 {
   font-family: 'Indie Flower', cursive;
   font-size: 1.2rem;
+  transform: rotate(0deg);
 }
 
 .profile-img:hover {
