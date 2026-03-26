@@ -114,6 +114,9 @@
 
     <p data-i18n="intro1" class="mb-2"></p>
     <p data-i18n="intro2" class="mb-4"></p>
+    <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 mb-6 italic text-sm text-gray-700 shadow-sm rotate-1">
+    "Şu an GPU programlama ve gömülü sistemler üzerine çalışıyorum, bir yandan da bu siteyi kurcalayarak web geliştirmeyi öğreniyorum."
+    </div>
 
     <div class="text-left">
       <h3 class="text-2xl font-semibold mt-6 mb-2" data-i18n="educationTitle">Eğitim</h3>
@@ -320,14 +323,25 @@ document.addEventListener("DOMContentLoaded", function () {
 
 </script>
 
-<section id="plays" data-aos="fade-up" class="max-w-3xl mx-auto p-6 bg-white rounded shadow-md mt-6">
-  <h3 class="text-2xl font-semibold mb-4" data-i18n="playTitle"  >En Son İzlediğim Tiyatro Oyunları</h3>
-  <ul class="list-disc list-inside space-y-1">
-    <li><strong> Haramiler</strong> - Yonetmen: Engin Alkan (24 Ocak 2026)</li>
-    <li><strong> Diksin: Buyuk Sans</strong> – Yonetmen: Kemal Aydogdu (30 Haziran 2025)</li>
-    <li><strong> Babami Kim Oldurdu?</strong> – Yonetmen: Kemal Aydogdu (18 Haziran 2025)</li>
-    <!-- vs. -->
-  </ul>
+
+<section id="plays" data-aos="fade-up" class="max-w-3xl mx-auto p-6 bg-white rounded-lg shadow-md mt-6 border-t-4 border-pink-300">
+  <h3 class="text-2xl font-semibold mb-4 flex items-center gap-2">
+    <span>🎭</span> <span data-i18n="playTitle">En Son İzlediğim Tiyatro Oyunları</span>
+  </h3>
+  <div class="grid gap-4">
+    <div class="p-3 bg-gray-50 rounded-md border border-dashed border-gray-300">
+       <span class="font-bold text-pink-600">Haramiler</span> - Yonetmen: Engin Alkan, Harbiye Muhsin Ertuğrul Sahnesi (24 Ocak 2026)
+       <p class="text-xs text-gray-500 mt-1 italic">"Kostumlerin tasarımı ve enerji harikaydı."</p>
+    </div>
+    <div class="p-3 bg-gray-50 rounded-md border border-dashed border-gray-300">
+       <span class="font-bold text-pink-600">Diksin: Buyuk Sans</span> – Yonetmen: Kemal Aydogdu, Moda Sahnesi (30 Haziran 2025)
+       <p class="text-xs text-gray-500 mt-1 italic">"Ilgincti."</p>
+    </div>
+    <div class="p-3 bg-gray-50 rounded-md border border-dashed border-gray-300">
+       <span class="font-bold text-pink-600"> Babami Kim Oldurdu?</span> – Yonetmen: Kemal Aydogdu, Moda Sahnesi (18 Haziran 2025)
+       <p class="text-xs text-gray-500 mt-1 italic">"Dusundurucuydu."</p>
+    </div>
+    </div>
 </section>
 
 
