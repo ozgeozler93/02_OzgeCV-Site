@@ -10,81 +10,277 @@
     .card { max-width: 900px; margin: 2rem auto; background: white; border-radius: 1.5rem; box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1); padding: 2rem; }
     .section-title { font-size: 1.5rem; font-weight: 700; margin-top: 1.5rem; margin-bottom: 0.75rem; border-left: 4px solid #3b82f6; padding-left: 0.75rem; }
     .job-title { font-weight: 600; color: #1e40af; }
+    .lang-btn { transition: all 0.2s; cursor: pointer; padding: 0.25rem 0.75rem; border-radius: 9999px; background: #e5e7eb; }
+    .lang-btn.active { background: #3b82f6; color: white; }
   </style>
 </head>
 <body class="font-sans">
 
 <div class="card">
+  <!-- Language Switcher -->
+  <div class="flex justify-end gap-2 mb-4">
+    <button class="lang-btn" data-lang="tr">🇹🇷 Türkçe</button>
+    <button class="lang-btn" data-lang="en">🇬🇧 English</button>
+    <button class="lang-btn" data-lang="fr">🇫🇷 Français</button>
+  </div>
+
   <!-- Profil -->
   <div class="text-center">
     <img src="assets/MakbuleOzge_Ozler.png" alt="Profil" class="w-32 h-32 mx-auto rounded-full border-4 border-blue-200 shadow-md mb-4">
-    <h1 class="text-3xl font-bold">Makbule Özge Özler</h1>
-    <h2 class="text-xl text-gray-600 mt-1">Araştırma Görevlisi | Web Geliştirici Adayı</h2>
-    <div class="bg-yellow-50 border-l-4 border-yellow-400 p-3 mt-4 text-sm italic text-gray-700">
+    <h1 id="name" class="text-3xl font-bold">Makbule Özge Özler</h1>
+    <h2 id="title" class="text-xl text-gray-600 mt-1">Araştırma Görevlisi | Web Geliştirici Adayı</h2>
+    <div id="quote" class="bg-yellow-50 border-l-4 border-yellow-400 p-3 mt-4 text-sm italic text-gray-700">
       "Şu an GPU programlama ve gömülü sistemler üzerine çalışıyorum, bir yandan da web geliştirmeyi öğreniyorum."
     </div>
   </div>
 
   <!-- Eğitim -->
-  <div class="section-title">🎓 Eğitim</div>
-  <ul class="list-disc pl-6 space-y-1">
-    <li><strong>İstanbul Teknik Üniversitesi</strong> – Bilgisayar Bilimleri (Doktora) – 2025-devam</li>
-    <li><strong>Yıldız Teknik Üniversitesi</strong> – Bilgisayar Mühendisliği (Doktora Hazırlık) – 2022-2025 (program tamamlanmadı)</li>
-    <li><strong>Galatasaray Üniversitesi</strong> – Endüstri Mühendisliği (Yüksek Lisans) – 2017-2020 (GPA: 3.5/4)</li>
-    <li><strong>Yeditepe Üniversitesi</strong> – Endüstri ve Sistem Mühendisliği (Lisans) – 2011-2016 (GPA: 2.84/4)</li>
-  </ul>
+  <div class="section-title" id="eduTitle">🎓 Eğitim</div>
+  <ul id="education" class="list-disc pl-6 space-y-1"></ul>
 
   <!-- İş Deneyimi -->
-  <div class="section-title">💼 İş Deneyimi</div>
-  <ul class="list-disc pl-6 space-y-1">
-    <li><span class="job-title">Araştırma Görevlisi</span> – İstanbul Nişantaşı Üniversitesi (05/2025 – devam)</li>
-    <li><span class="job-title">Graduate Project Student</span> – BSH Hausgeräte (01/2024 – 01/2025)</li>
-    <li><span class="job-title">Yazılım Danışmanı</span> – Selco Consulting (01/2023 – 11/2023)</li>
-    <li><span class="job-title">Bölgesel Fiyatlandırma Analisti</span> – Madame Coco (09/2022 – 01/2023)</li>
-    <li><span class="job-title">Ar-Ge Mühendisi</span> – G Technology (09/2021 – 08/2022)</li>
-    <li><span class="job-title">Araştırma ve Öğretim Asistanı</span> – İstanbul Kültür Üniversitesi (12/2019 – 08/2021)</li>
-    <li><span class="job-title">Nicel Analist (Staj)</span> – Ewe Energy (02/2018 – 05/2018)</li>
-  </ul>
+  <div class="section-title" id="expTitle">💼 İş Deneyimi</div>
+  <ul id="experience" class="list-disc pl-6 space-y-1"></ul>
 
   <!-- Teknik Yetenekler -->
-  <div class="section-title">🛠️ Teknik Yetenekler</div>
-  <ul class="list-disc pl-6 space-y-1">
-    <li><strong>Programlama:</strong> C, C++, C#, Python, JavaScript, PL/SQL, MATLAB</li>
-    <li><strong>Veritabanı & Araçlar:</strong> Microsoft SQL Server, MongoDB, Git, Linux, ROS, Jira</li>
-    <li><strong>Optimizasyon & Simülasyon:</strong> GAMS, Xpress, Minitab, Arena, Weka</li>
-    <li><strong>Web & Diğer:</strong> HTML/CSS, XML/XSL, Autocad, Hyperion HFM, Gazebo</li>
-  </ul>
+  <div class="section-title" id="skillsTitle">🛠️ Teknik Yetenekler</div>
+  <ul id="skills" class="list-disc pl-6 space-y-1"></ul>
 
   <!-- Dil Yeterlilikleri -->
-  <div class="section-title">🌐 Dil Yeterlilikleri</div>
-  <ul class="list-disc pl-6 space-y-1">
-    <li><strong>Türkçe:</strong> Anadil</li>
-    <li><strong>İngilizce:</strong> C1 (TOEFL IBT 92/120 – Şubat 2025)</li>
-    <li><strong>Fransızca:</strong> B2 (DELF B2 – 60.5/100, Kasım 2025)</li>
-  </ul>
+  <div class="section-title" id="langTitle">🌐 Dil Yeterlilikleri</div>
+  <ul id="languages" class="list-disc pl-6 space-y-1"></ul>
 
   <!-- Sertifikalar -->
-  <div class="section-title">📜 Sertifikalar</div>
-  <ul class="list-disc pl-6 space-y-1">
-    <li><a href="assets/pdf/SkillsCert20260402-31-wxjtik.pdf" target="_blank" class="text-blue-600 hover:underline">MongoDB Overview: Core Concepts and Architecture</a></li>
-    <li><a href="assets/pdf/Delf_B2_MakbuleOzgeOzler.pdf" target="_blank" class="text-blue-600 hover:underline">DELF B2 (Fransızca)</a></li>
-    <li><a href="assets/pdf/TOEFL_Score_Report_0995450.pdf" target="_blank" class="text-blue-600 hover:underline">TOEFL IBT (92/120)</a></li>
-    <li>Introduction to Cybersecurity (CISCO)</li>
-    <li>Data Engineering Essentials (Coursera) | Python Project for Data Engineering (IBM)</li>
-    <li>Applied Data Science & Machine Learning Bootcamp (Let's Code)</li>
-    <li>Machine Learning School (S. İlker Birbil)</li>
-    <li>Big Data Summer Academy (G Tech)</li>
-  </ul>
+  <div class="section-title" id="certsTitle">📜 Sertifikalar</div>
+  <ul id="certificates" class="list-disc pl-6 space-y-1"></ul>
 
   <!-- İletişim -->
-  <div class="section-title">📬 İletişim</div>
-  <div class="flex flex-wrap gap-3 mt-2">
-    <a href="mailto:mak.ozgeozler@gmail.com" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">E-Posta Gönder</a>
-    <a href="assets/MakbuleOzge_Ozler_Cv10.pdf" download class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">📄 CV'yi İndir</a>
-    <a href="https://www.linkedin.com/in/makbuleozgeozler/" target="_blank" class="bg-gray-800 text-white px-4 py-2 rounded hover:bg-gray-700">LinkedIn</a>
-    <a href="https://github.com/ozgeozler93" target="_blank" class="bg-black text-white px-4 py-2 rounded hover:bg-gray-900">GitHub</a>
-  </div>
+  <div class="section-title" id="contactTitle">📬 İletişim</div>
+  <div id="contactButtons" class="flex flex-wrap gap-3 mt-2"></div>
 </div>
+
+<script>
+  // Translations
+  const translations = {
+    tr: {
+      name: "Makbule Özge Özler",
+      title: "Araştırma Görevlisi | Web Geliştirici Adayı",
+      quote: "Şu an GPU programlama ve gömülü sistemler üzerine çalışıyorum, bir yandan da web geliştirmeyi öğreniyorum.",
+      eduTitle: "🎓 Eğitim",
+      education: [
+        "<strong>İstanbul Teknik Üniversitesi</strong> – Bilgisayar Bilimleri (Doktora) – 2025-devam",
+        "<strong>Yıldız Teknik Üniversitesi</strong> – Bilgisayar Mühendisliği (Doktora Hazırlık) – 2022-2025 (program tamamlanmadı)",
+        "<strong>Galatasaray Üniversitesi</strong> – Endüstri Mühendisliği (Yüksek Lisans) – 2017-2020 (GPA: 3.5/4)",
+        "<strong>Yeditepe Üniversitesi</strong> – Endüstri ve Sistem Mühendisliği (Lisans) – 2011-2016 (GPA: 2.84/4)"
+      ],
+      expTitle: "💼 İş Deneyimi",
+      experience: [
+        "<span class='job-title'>Araştırma Görevlisi</span> – İstanbul Nişantaşı Üniversitesi (05/2025 – devam)",
+        "<span class='job-title'>Graduate Project Student</span> – BSH Hausgeräte (01/2024 – 01/2025)",
+        "<span class='job-title'>Yazılım Danışmanı</span> – Selco Consulting (01/2023 – 11/2023)",
+        "<span class='job-title'>Bölgesel Fiyatlandırma Analisti</span> – Madame Coco (09/2022 – 01/2023)",
+        "<span class='job-title'>Ar-Ge Mühendisi</span> – G Technology (09/2021 – 08/2022)",
+        "<span class='job-title'>Araştırma ve Öğretim Asistanı</span> – İstanbul Kültür Üniversitesi (12/2019 – 08/2021)",
+        "<span class='job-title'>Nicel Analist (Staj)</span> – Ewe Energy (02/2018 – 05/2018)"
+      ],
+      skillsTitle: "🛠️ Teknik Yetenekler",
+      skills: [
+        "<strong>Programlama:</strong> C, C++, C#, Python, JavaScript, PL/SQL, MATLAB",
+        "<strong>Veritabanı & Araçlar:</strong> Microsoft SQL Server, MongoDB, Git, Linux, ROS, Jira",
+        "<strong>Optimizasyon & Simülasyon:</strong> GAMS, Xpress, Minitab, Arena, Weka",
+        "<strong>Web & Diğer:</strong> HTML/CSS, XML/XSL, Autocad, Hyperion HFM, Gazebo"
+      ],
+      langTitle: "🌐 Dil Yeterlilikleri",
+      languages: [
+        "<strong>Türkçe:</strong> Anadil",
+        "<strong>İngilizce:</strong> C1 (TOEFL IBT 92/120 – Şubat 2025)",
+        "<strong>Fransızca:</strong> B2 (DELF B2 – 60.5/100, Kasım 2025)"
+      ],
+      certsTitle: "📜 Sertifikalar",
+      certificates: [
+        "<a href='assets/pdf/SkillsCert20260402-31-wxjtik.pdf' target='_blank' class='text-blue-600 hover:underline'>MongoDB Overview: Core Concepts and Architecture</a>",
+        "<a href='assets/pdf/Delf_B2_MakbuleOzgeOzler.pdf' target='_blank' class='text-blue-600 hover:underline'>DELF B2 (Fransızca)</a>",
+        "<a href='assets/pdf/TOEFL_Score_Report_0995450.pdf' target='_blank' class='text-blue-600 hover:underline'>TOEFL IBT (92/120)</a>",
+        "Introduction to Cybersecurity (CISCO)",
+        "Data Engineering Essentials (Coursera) | Python Project for Data Engineering (IBM)",
+        "Applied Data Science & Machine Learning Bootcamp (Let's Code)",
+        "Machine Learning School (S. İlker Birbil)",
+        "Big Data Summer Academy (G Tech)"
+      ],
+      contactTitle: "📬 İletişim",
+      contactButtons: [
+        { text: "E-Posta Gönder", href: "mailto:mak.ozgeozler@gmail.com", class: "bg-blue-500" },
+        { text: "📄 CV'yi İndir", href: "assets/MakbuleOzge_Ozler_Cv10.pdf", download: true, class: "bg-green-500" },
+        { text: "LinkedIn", href: "https://www.linkedin.com/in/makbuleozgeozler/", class: "bg-gray-800" },
+        { text: "GitHub", href: "https://github.com/ozgeozler93", class: "bg-black" }
+      ]
+    },
+    en: {
+      name: "Makbule Özge Özler",
+      title: "Research Assistant | Web Developer Candidate",
+      quote: "Currently working on GPU programming and embedded systems, while learning web development by tinkering with this site.",
+      eduTitle: "🎓 Education",
+      education: [
+        "<strong>Istanbul Technical University</strong> – Computer Science (PhD) – 2025-present",
+        "<strong>Yıldız Technical University</strong> – Computer Engineering (PhD Prep) – 2022-2025 (program not completed)",
+        "<strong>Galatasaray University</strong> – Industrial Engineering (Master's) – 2017-2020 (GPA: 3.5/4)",
+        "<strong>Yeditepe University</strong> – Industrial & Systems Engineering (Bachelor's) – 2011-2016 (GPA: 2.84/4)"
+      ],
+      expTitle: "💼 Work Experience",
+      experience: [
+        "<span class='job-title'>Research Assistant</span> – Istanbul Nişantaşı University (05/2025 – present)",
+        "<span class='job-title'>Graduate Project Student</span> – BSH Hausgeräte (01/2024 – 01/2025)",
+        "<span class='job-title'>Software Consultant</span> – Selco Consulting (01/2023 – 11/2023)",
+        "<span class='job-title'>Regional Pricing Analyst</span> – Madame Coco (09/2022 – 01/2023)",
+        "<span class='job-title'>R&D Engineer</span> – G Technology (09/2021 – 08/2022)",
+        "<span class='job-title'>Research & Teaching Assistant</span> – Istanbul Kültür University (12/2019 – 08/2021)",
+        "<span class='job-title'>Quantitative Analyst (Intern)</span> – Ewe Energy (02/2018 – 05/2018)"
+      ],
+      skillsTitle: "🛠️ Technical Skills",
+      skills: [
+        "<strong>Programming:</strong> C, C++, C#, Python, JavaScript, PL/SQL, MATLAB",
+        "<strong>Database & Tools:</strong> Microsoft SQL Server, MongoDB, Git, Linux, ROS, Jira",
+        "<strong>Optimization & Simulation:</strong> GAMS, Xpress, Minitab, Arena, Weka",
+        "<strong>Web & Others:</strong> HTML/CSS, XML/XSL, Autocad, Hyperion HFM, Gazebo"
+      ],
+      langTitle: "🌐 Language Proficiency",
+      languages: [
+        "<strong>Turkish:</strong> Native",
+        "<strong>English:</strong> C1 (TOEFL IBT 92/120 – Feb 2025)",
+        "<strong>French:</strong> B2 (DELF B2 – 60.5/100, Nov 2025)"
+      ],
+      certsTitle: "📜 Certificates",
+      certificates: [
+        "<a href='assets/pdf/SkillsCert20260402-31-wxjtik.pdf' target='_blank' class='text-blue-600 hover:underline'>MongoDB Overview: Core Concepts and Architecture</a>",
+        "<a href='assets/pdf/Delf_B2_MakbuleOzgeOzler.pdf' target='_blank' class='text-blue-600 hover:underline'>DELF B2 (French)</a>",
+        "<a href='assets/pdf/TOEFL_Score_Report_0995450.pdf' target='_blank' class='text-blue-600 hover:underline'>TOEFL IBT (92/120)</a>",
+        "Introduction to Cybersecurity (CISCO)",
+        "Data Engineering Essentials (Coursera) | Python Project for Data Engineering (IBM)",
+        "Applied Data Science & Machine Learning Bootcamp (Let's Code)",
+        "Machine Learning School (S. İlker Birbil)",
+        "Big Data Summer Academy (G Tech)"
+      ],
+      contactTitle: "📬 Contact",
+      contactButtons: [
+        { text: "Send Email", href: "mailto:mak.ozgeozler@gmail.com", class: "bg-blue-500" },
+        { text: "📄 Download CV", href: "assets/MakbuleOzge_Ozler_Cv10.pdf", download: true, class: "bg-green-500" },
+        { text: "LinkedIn", href: "https://www.linkedin.com/in/makbuleozgeozler/", class: "bg-gray-800" },
+        { text: "GitHub", href: "https://github.com/ozgeozler93", class: "bg-black" }
+      ]
+    },
+    fr: {
+      name: "Makbule Özge Özler",
+      title: "Assistante de Recherche | Candidate Développeuse Web",
+      quote: "Actuellement, je travaille sur la programmation GPU et les systèmes embarqués, tout en apprenant le développement web en bricolant ce site.",
+      eduTitle: "🎓 Formation",
+      education: [
+        "<strong>Université Technique d'Istanbul</strong> – Informatique (Doctorat) – 2025-présent",
+        "<strong>Université Technique de Yıldız</strong> – Génie Informatique (Préparation Doctorat) – 2022-2025 (programme non terminé)",
+        "<strong>Université Galatasaray</strong> – Génie Industriel (Master) – 2017-2020 (Moyenne: 3.5/4)",
+        "<strong>Université Yeditepe</strong> – Génie Industriel et Systèmes (Licence) – 2011-2016 (Moyenne: 2.84/4)"
+      ],
+      expTitle: "💼 Expérience Professionnelle",
+      experience: [
+        "<span class='job-title'>Assistante de Recherche</span> – Université İstanbul Nişantaşı (05/2025 – présent)",
+        "<span class='job-title'>Étudiante Projet Graduate</span> – BSH Hausgeräte (01/2024 – 01/2025)",
+        "<span class='job-title'>Consultante Logiciel</span> – Selco Consulting (01/2023 – 11/2023)",
+        "<span class='job-title'>Analyste Prix Régional</span> – Madame Coco (09/2022 – 01/2023)",
+        "<span class='job-title'>Ingénieur R&D</span> – G Technology (09/2021 – 08/2022)",
+        "<span class='job-title'>Assistante de Recherche et Enseignement</span> – Université İstanbul Kültür (12/2019 – 08/2021)",
+        "<span class='job-title'>Analyste Quantitative (Stage)</span> – Ewe Energy (02/2018 – 05/2018)"
+      ],
+      skillsTitle: "🛠️ Compétences Techniques",
+      skills: [
+        "<strong>Programmation:</strong> C, C++, C#, Python, JavaScript, PL/SQL, MATLAB",
+        "<strong>Base de données & Outils:</strong> Microsoft SQL Server, MongoDB, Git, Linux, ROS, Jira",
+        "<strong>Optimisation & Simulation:</strong> GAMS, Xpress, Minitab, Arena, Weka",
+        "<strong>Web & Autres:</strong> HTML/CSS, XML/XSL, Autocad, Hyperion HFM, Gazebo"
+      ],
+      langTitle: "🌐 Compétences Linguistiques",
+      languages: [
+        "<strong>Turc:</strong> Langue maternelle",
+        "<strong>Anglais:</strong> C1 (TOEFL IBT 92/120 – Fév 2025)",
+        "<strong>Français:</strong> B2 (DELF B2 – 60.5/100, Nov 2025)"
+      ],
+      certsTitle: "📜 Certificats",
+      certificates: [
+        "<a href='assets/pdf/SkillsCert20260402-31-wxjtik.pdf' target='_blank' class='text-blue-600 hover:underline'>MongoDB Overview: Core Concepts and Architecture</a>",
+        "<a href='assets/pdf/Delf_B2_MakbuleOzgeOzler.pdf' target='_blank' class='text-blue-600 hover:underline'>DELF B2 (Français)</a>",
+        "<a href='assets/pdf/TOEFL_Score_Report_0995450.pdf' target='_blank' class='text-blue-600 hover:underline'>TOEFL IBT (92/120)</a>",
+        "Introduction à la Cybersécurité (CISCO)",
+        "Data Engineering Essentials (Coursera) | Projet Python pour Data Engineering (IBM)",
+        "Bootcamp Science des Données & Machine Learning (Let's Code)",
+        "École Machine Learning (S. İlker Birbil)",
+        "Académie d'Été Big Data (G Tech)"
+      ],
+      contactTitle: "📬 Contact",
+      contactButtons: [
+        { text: "Envoyer un E-mail", href: "mailto:mak.ozgeozler@gmail.com", class: "bg-blue-500" },
+        { text: "📄 Télécharger CV", href: "assets/MakbuleOzge_Ozler_Cv10.pdf", download: true, class: "bg-green-500" },
+        { text: "LinkedIn", href: "https://www.linkedin.com/in/makbuleozgeozler/", class: "bg-gray-800" },
+        { text: "GitHub", href: "https://github.com/ozgeozler93", class: "bg-black" }
+      ]
+    }
+  };
+
+  let currentLang = localStorage.getItem("lang") || "tr";
+
+  function setLanguage(lang) {
+    currentLang = lang;
+    localStorage.setItem("lang", lang);
+    const t = translations[lang];
+
+    // Update text fields
+    document.getElementById("name").textContent = t.name;
+    document.getElementById("title").textContent = t.title;
+    document.getElementById("quote").textContent = t.quote;
+    document.getElementById("eduTitle").innerHTML = t.eduTitle;
+    document.getElementById("expTitle").innerHTML = t.expTitle;
+    document.getElementById("skillsTitle").innerHTML = t.skillsTitle;
+    document.getElementById("langTitle").innerHTML = t.langTitle;
+    document.getElementById("certsTitle").innerHTML = t.certsTitle;
+    document.getElementById("contactTitle").innerHTML = t.contactTitle;
+
+    // Update lists
+    document.getElementById("education").innerHTML = t.education.map(item => `<li>${item}</li>`).join("");
+    document.getElementById("experience").innerHTML = t.experience.map(item => `<li>${item}</li>`).join("");
+    document.getElementById("skills").innerHTML = t.skills.map(item => `<li>${item}</li>`).join("");
+    document.getElementById("languages").innerHTML = t.languages.map(item => `<li>${item}</li>`).join("");
+    document.getElementById("certificates").innerHTML = t.certificates.map(item => `<li>${item}</li>`).join("");
+
+    // Update contact buttons
+    const contactDiv = document.getElementById("contactButtons");
+    contactDiv.innerHTML = "";
+    t.contactButtons.forEach(btn => {
+      const a = document.createElement("a");
+      a.href = btn.href;
+      a.textContent = btn.text;
+      a.className = `${btn.class} text-white px-4 py-2 rounded hover:opacity-90`;
+      if (btn.download) a.setAttribute("download", "");
+      if (btn.href.startsWith("http")) a.target = "_blank";
+      contactDiv.appendChild(a);
+    });
+
+    // Update active button style
+    document.querySelectorAll(".lang-btn").forEach(btn => {
+      if (btn.getAttribute("data-lang") === lang) {
+        btn.classList.add("active");
+      } else {
+        btn.classList.remove("active");
+      }
+    });
+  }
+
+  // Event listeners for language switcher
+  document.querySelectorAll(".lang-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      setLanguage(btn.getAttribute("data-lang"));
+    });
+  });
+
+  // Initial load
+  setLanguage(currentLang);
+</script>
 
 </body>
 </html>
