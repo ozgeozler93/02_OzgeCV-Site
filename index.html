@@ -50,21 +50,32 @@
     }
     a { transition: all 0.2s; }
     footer a:hover { text-decoration: underline; }
-    /* Calendar styling */
-    .calendar {
-      background: #fff;
+    
+    /* Fixed calendar widget */
+    .fixed-calendar {
+      position: fixed;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      width: 260px;
+      background: white;
       border-radius: 1rem;
-      padding: 0.75rem;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+      box-shadow: 0 10px 25px -5px rgba(0,0,0,0.15);
+      z-index: 50;
+      border: 1px solid rgba(0,0,0,0.05);
+      backdrop-filter: blur(4px);
+      transition: all 0.2s;
     }
-    .calendar table { width: 100%; border-collapse: collapse; }
-    .calendar th, .calendar td { text-align: center; padding: 0.4rem; font-size: 0.85rem; }
-    .calendar td { cursor: pointer; border-radius: 2rem; transition: 0.1s; }
-    .calendar td:hover { background: #eef2ff; }
-    .today { background: #1e4a76; color: white !important; border-radius: 2rem; }
+    .fixed-calendar .calendar-inner {
+      padding: 0.75rem;
+    }
+    .fixed-calendar table { width: 100%; border-collapse: collapse; }
+    .fixed-calendar th, .fixed-calendar td { text-align: center; padding: 0.3rem; font-size: 0.75rem; }
+    .fixed-calendar td { cursor: pointer; border-radius: 1.5rem; }
+    .fixed-calendar td:hover { background: #eef2ff; }
+    .fixed-calendar .today { background: #1e4a76; color: white; border-radius: 1.5rem; }
     @media (max-width: 640px) {
-      .card { margin: 1rem; padding: 1.25rem; }
-      .calendar th, .calendar td { padding: 0.2rem; font-size: 0.75rem; }
+      .fixed-calendar { width: 220px; bottom: 1rem; right: 1rem; }
+      .fixed-calendar th, .fixed-calendar td { padding: 0.2rem; font-size: 0.7rem; }
     }
   </style>
 </head>
@@ -134,22 +145,16 @@
           <ul id="projects" class="mt-3 space-y-2 pl-2 list-disc list-inside text-gray-700"></ul>
         </div>
 
-        <!-- Theatre Plays (new) -->
+        <!-- Theatre Plays (updated) -->
         <div data-aos="fade-up">
           <div class="section-title text-2xl md:text-3xl text-gray-800" id="theatreTitle"><i data-lucide="clapperboard" class="w-7 h-7 text-blue-700"></i> <span>Tiyatro Oyunları</span></div>
           <ul id="theatre" class="mt-3 space-y-2 pl-2 list-disc list-inside text-gray-700"></ul>
         </div>
 
-        <!-- Favorite Links (Sevdiğim Sayfalar) -->
+        <!-- Favorite Links -->
         <div data-aos="fade-up">
           <div class="section-title text-2xl md:text-3xl text-gray-800" id="favLinksTitle"><i data-lucide="heart" class="w-7 h-7 text-blue-700"></i> <span>Sevdiğim Sayfalar</span></div>
           <ul id="favLinks" class="mt-3 space-y-2 pl-2 list-disc list-inside text-gray-700"></ul>
-        </div>
-
-        <!-- Live Calendar -->
-        <div data-aos="fade-up">
-          <div class="section-title text-2xl md:text-3xl text-gray-800" id="calendarTitle"><i data-lucide="calendar" class="w-7 h-7 text-blue-700"></i> <span>Güncel Takvim</span></div>
-          <div id="calendarContainer" class="mt-3 calendar"></div>
         </div>
 
         <!-- Contact -->
@@ -167,8 +172,16 @@
   </footer>
 </div>
 
+<!-- Fixed Calendar Widget (outside main card) -->
+<div class="fixed-calendar" data-aos="fade-left" data-aos-delay="200">
+  <div class="calendar-inner">
+    <div id="calendarTitleWidget" class="text-center font-semibold text-sm mb-2 text-blue-800">📅 Takvim</div>
+    <div id="calendarContainer"></div>
+  </div>
+</div>
+
 <script>
-  // Translations (full with new sections)
+  // Translations (full with new theatre play)
   const translations = {
     tr: {
       name: "Makbule Özge Özler",
@@ -226,7 +239,8 @@
       theatre: [
         "<strong>Haramiler</strong> – Yönetmen: Engin Alkan, Harbiye Muhsin Ertuğrul Sahnesi (24 Ocak 2026)<br><span class='text-gray-600 text-sm'>“Kostümlerin tasarımı ve enerji harikaydı.”</span>",
         "<strong>Diksin: Büyük Şans</strong> – Yönetmen: Kemal Aydoğdu, Moda Sahnesi (30 Haziran 2025)<br><span class='text-gray-600 text-sm'>“İlginçti.”</span>",
-        "<strong>Babamı Kim Öldürdü?</strong> – Yönetmen: Kemal Aydoğdu, Moda Sahnesi (18 Haziran 2025)<br><span class='text-gray-600 text-sm'>“Düşündürücüydü.”</span>"
+        "<strong>Babamı Kim Öldürdü?</strong> – Yönetmen: Kemal Aydoğdu, Moda Sahnesi (18 Haziran 2025)<br><span class='text-gray-600 text-sm'>“Düşündürücüydü.”</span>",
+        "<strong>Şahları da Vururlar</strong> – Ses Tiyatrosu, Yönetmen: Ferhan Şensoy<br><span class='text-gray-600 text-sm'>“Failatün Failün. Failatün Failün.”</span>"
       ],
       favLinksTitle: "Sevdiğim Sayfalar",
       favLinks: [
@@ -234,7 +248,6 @@
         "<a href='https://kultur.istanbul/' target='_blank' class='text-blue-600 hover:underline'>📚 Kültür İstanbul</a> – Sergiler, konserler ve festivaller",
         "<a href='https://www.biletix.com/' target='_blank' class='text-blue-600 hover:underline'>🎫 Biletix</a> – Tiyatro ve etkinlik takvimi"
       ],
-      calendarTitle: "Güncel Takvim",
       contactTitle: "İletişim",
       contactButtons: [
         { text: "E-Posta Gönder", href: "mailto:mak.ozgeozler@gmail.com", class: "bg-blue-600 hover:bg-blue-700" },
@@ -243,7 +256,8 @@
         { text: "GitHub", href: "https://github.com/ozgeozler93", class: "bg-gray-900 hover:bg-black" }
       ],
       footerRights: "Tüm hakları saklıdır.",
-      updateDateText: "Son güncelleme: Nisan 2026"
+      updateDateText: "Son güncelleme: Nisan 2026",
+      calendarTitle: "📅 Takvim"
     },
     en: {
       name: "Makbule Özge Özler",
@@ -301,7 +315,8 @@
       theatre: [
         "<strong>Haramiler</strong> – Director: Engin Alkan, Harbiye Muhsin Ertuğrul Stage (24 Jan 2026)<br><span class='text-gray-600 text-sm'>“Costume design and energy were amazing.”</span>",
         "<strong>Diksin: Büyük Şans</strong> – Director: Kemal Aydoğdu, Moda Stage (30 Jun 2025)<br><span class='text-gray-600 text-sm'>“Interesting.”</span>",
-        "<strong>Babamı Kim Öldürdü?</strong> – Director: Kemal Aydoğdu, Moda Stage (18 Jun 2025)<br><span class='text-gray-600 text-sm'>“Thought-provoking.”</span>"
+        "<strong>Babamı Kim Öldürdü?</strong> – Director: Kemal Aydoğdu, Moda Stage (18 Jun 2025)<br><span class='text-gray-600 text-sm'>“Thought-provoking.”</span>",
+        "<strong>Şahları da Vururlar</strong> – Ses Theatre, Director: Ferhan Şensoy<br><span class='text-gray-600 text-sm'>“Failatün Failün. Failatün Failün.”</span>"
       ],
       favLinksTitle: "Favorite Pages",
       favLinks: [
@@ -309,7 +324,6 @@
         "<a href='https://kultur.istanbul/' target='_blank' class='text-blue-600 hover:underline'>📚 Culture Istanbul</a> – Exhibitions, concerts and festivals",
         "<a href='https://www.biletix.com/' target='_blank' class='text-blue-600 hover:underline'>🎫 Biletix</a> – Theatre and event calendar"
       ],
-      calendarTitle: "Live Calendar",
       contactTitle: "Contact",
       contactButtons: [
         { text: "Send Email", href: "mailto:mak.ozgeozler@gmail.com", class: "bg-blue-600 hover:bg-blue-700" },
@@ -318,7 +332,8 @@
         { text: "GitHub", href: "https://github.com/ozgeozler93", class: "bg-gray-900 hover:bg-black" }
       ],
       footerRights: "All rights reserved.",
-      updateDateText: "Last updated: April 2026"
+      updateDateText: "Last updated: April 2026",
+      calendarTitle: "📅 Calendar"
     },
     fr: {
       name: "Makbule Özge Özler",
@@ -376,7 +391,8 @@
       theatre: [
         "<strong>Haramiler</strong> – Metteur en scène: Engin Alkan, Scène Harbiye Muhsin Ertuğrul (24 janv. 2026)<br><span class='text-gray-600 text-sm'>“La conception des costumes et l'énergie étaient formidables.”</span>",
         "<strong>Diksin: Büyük Şans</strong> – Metteur en scène: Kemal Aydoğdu, Scène Moda (30 juin 2025)<br><span class='text-gray-600 text-sm'>“Intéressant.”</span>",
-        "<strong>Babamı Kim Öldürdü?</strong> – Metteur en scène: Kemal Aydoğdu, Scène Moda (18 juin 2025)<br><span class='text-gray-600 text-sm'>“Plein de réflexion.”</span>"
+        "<strong>Babamı Kim Öldürdü?</strong> – Metteur en scène: Kemal Aydoğdu, Scène Moda (18 juin 2025)<br><span class='text-gray-600 text-sm'>“Plein de réflexion.”</span>",
+        "<strong>Şahları da Vururlar</strong> – Théâtre Ses, Metteur en scène: Ferhan Şensoy<br><span class='text-gray-600 text-sm'>“Failatün Failün. Failatün Failün.”</span>"
       ],
       favLinksTitle: "Pages Préférées",
       favLinks: [
@@ -384,7 +400,6 @@
         "<a href='https://kultur.istanbul/' target='_blank' class='text-blue-600 hover:underline'>📚 Culture Istanbul</a> – Expositions, concerts et festivals",
         "<a href='https://www.biletix.com/' target='_blank' class='text-blue-600 hover:underline'>🎫 Biletix</a> – Calendrier théâtre et événements"
       ],
-      calendarTitle: "Calendrier",
       contactTitle: "Contact",
       contactButtons: [
         { text: "Envoyer un E-mail", href: "mailto:mak.ozgeozler@gmail.com", class: "bg-blue-600 hover:bg-blue-700" },
@@ -393,7 +408,8 @@
         { text: "GitHub", href: "https://github.com/ozgeozler93", class: "bg-gray-900 hover:bg-black" }
       ],
       footerRights: "Tous droits réservés.",
-      updateDateText: "Dernière mise à jour : avril 2026"
+      updateDateText: "Dernière mise à jour : avril 2026",
+      calendarTitle: "📅 Calendrier"
     }
   };
 
@@ -412,14 +428,14 @@
     const dayNames = currentLang === 'tr' ? ['Pzt', 'Sal', 'Çar', 'Per', 'Cum', 'Cmt', 'Paz'] :
                      currentLang === 'fr' ? ['Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam', 'Dim'] :
                      ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
-    let html = `<div class="text-center font-semibold mb-2">${monthNames[month]} ${year}</div>`;
+    let html = `<div class="text-center font-semibold text-xs mb-1">${monthNames[month]} ${year}</div>`;
     html += '<table><thead><tr>';
     dayNames.forEach(d => html += `<th class="text-gray-500 text-xs">${d}</th>`);
-    html += '</tr></thead><tbody><tr>';
-    let startOffset = (firstDay + 6) % 7; // convert to Monday first
+    html += '</table></thead><tbody><tr>';
+    let startOffset = (firstDay + 6) % 7;
     for (let i = 0; i < startOffset; i++) html += '<td></td>';
     for (let d = 1; d <= daysInMonth; d++) {
-      if ((startOffset + d - 1) % 7 === 0 && d !== 1) html += '</tr><tr>';
+      if ((startOffset + d - 1) % 7 === 0 && d !== 1) html += '</table><tr>';
       const isToday = (d === today && now.getMonth() === month && now.getFullYear() === year);
       html += `<td class="${isToday ? 'today' : ''}">${d}</td>`;
     }
@@ -427,6 +443,7 @@
     if (remaining < 7) for (let i = 0; i < remaining; i++) html += '<td></td>';
     html += '</tr></tbody></table>';
     document.getElementById("calendarContainer").innerHTML = html;
+    document.getElementById("calendarTitleWidget").innerHTML = translations[currentLang].calendarTitle;
   }
 
   function setLanguage(lang) {
@@ -449,7 +466,6 @@
     updateTitle("projectsTitle", "rocket", t.projectsTitle);
     updateTitle("theatreTitle", "clapperboard", t.theatreTitle);
     updateTitle("favLinksTitle", "heart", t.favLinksTitle);
-    updateTitle("calendarTitle", "calendar", t.calendarTitle);
     updateTitle("contactTitle", "mail", t.contactTitle);
 
     document.getElementById("education").innerHTML = t.education.map(i => `<li>${i}</li>`).join("");
@@ -482,7 +498,7 @@
     document.getElementById("updateDate").textContent = t.updateDateText;
 
     lucide.createIcons();
-    renderCalendar(); // refresh calendar for month names / day names
+    renderCalendar();
   }
 
   document.querySelectorAll(".lang-btn").forEach(btn => {
