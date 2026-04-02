@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Makbule Özge Özler | Portfolio CV</title>
+  <!-- Favicon (data URI) -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%231e4a76'%3E%3Cpath d='M4 6h16v2H4V6zm2-4h12v2H6V2zm16 8H2v12h20V10zm-2 10H4v-8h16v8z'/%3E%3C/svg%3E">
   <!-- Google Fonts & Tailwind + custom CSS -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&family=Playfair+Display:ital,wght@0,500;1,500&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
@@ -43,34 +45,33 @@
       color: white;
       box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
-    .hover-lift {
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-    .hover-lift:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 12px 20px -12px rgba(0,0,0,0.2);
-    }
     .profile-glow {
       box-shadow: 0 0 0 4px white, 0 0 0 8px rgba(30,74,118,0.2);
     }
-    a {
-      transition: all 0.2s;
+    a { transition: all 0.2s; }
+    footer a:hover { text-decoration: underline; }
+    /* Calendar styling */
+    .calendar {
+      background: #fff;
+      border-radius: 1rem;
+      padding: 0.75rem;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
     }
-    footer a:hover {
-      text-decoration: underline;
-    }
+    .calendar table { width: 100%; border-collapse: collapse; }
+    .calendar th, .calendar td { text-align: center; padding: 0.4rem; font-size: 0.85rem; }
+    .calendar td { cursor: pointer; border-radius: 2rem; transition: 0.1s; }
+    .calendar td:hover { background: #eef2ff; }
+    .today { background: #1e4a76; color: white !important; border-radius: 2rem; }
     @media (max-width: 640px) {
-      .card {
-        margin: 1rem;
-        padding: 1.25rem;
-      }
+      .card { margin: 1rem; padding: 1.25rem; }
+      .calendar th, .calendar td { padding: 0.2rem; font-size: 0.75rem; }
     }
   </style>
 </head>
 <body class="antialiased">
 
 <div class="max-w-4xl mx-auto px-4 py-8 md:py-12">
-  <!-- Language Switcher - floating style -->
+  <!-- Language Switcher -->
   <div class="flex justify-end mb-6" data-aos="fade-down">
     <div class="bg-white/70 backdrop-blur-sm rounded-full shadow-sm border border-gray-200 p-1 flex gap-1">
       <button class="lang-btn px-4 py-1.5 rounded-full text-sm font-medium" data-lang="tr">🇹🇷 Türkçe</button>
@@ -81,9 +82,7 @@
 
   <!-- Main Card -->
   <div class="card rounded-2xl shadow-2xl overflow-hidden" data-aos="fade-up">
-    <!-- Decorative top bar -->
     <div class="h-2 bg-gradient-to-r from-blue-700 via-indigo-500 to-amber-400"></div>
-    
     <div class="p-6 md:p-10">
       <!-- Profile section -->
       <div class="text-center" data-aos="zoom-in">
@@ -98,61 +97,64 @@
         </div>
       </div>
 
-      <!-- Sections with icons (Lucide will replace) -->
       <div class="mt-10 space-y-8">
         <!-- Education -->
         <div data-aos="fade-right">
-          <div class="section-title text-2xl md:text-3xl text-gray-800" id="eduTitle">
-            <i data-lucide="graduation-cap" class="w-7 h-7 text-blue-700"></i> <span>🎓 Eğitim</span>
-          </div>
+          <div class="section-title text-2xl md:text-3xl text-gray-800" id="eduTitle"><i data-lucide="graduation-cap" class="w-7 h-7 text-blue-700"></i> <span>Eğitim</span></div>
           <ul id="education" class="mt-3 space-y-2 pl-2 list-disc list-inside text-gray-700"></ul>
         </div>
 
         <!-- Experience -->
         <div data-aos="fade-left">
-          <div class="section-title text-2xl md:text-3xl text-gray-800" id="expTitle">
-            <i data-lucide="briefcase" class="w-7 h-7 text-blue-700"></i> <span>💼 İş Deneyimi</span>
-          </div>
+          <div class="section-title text-2xl md:text-3xl text-gray-800" id="expTitle"><i data-lucide="briefcase" class="w-7 h-7 text-blue-700"></i> <span>İş Deneyimi</span></div>
           <ul id="experience" class="mt-3 space-y-2 pl-2 list-disc list-inside text-gray-700"></ul>
         </div>
 
         <!-- Technical Skills -->
         <div data-aos="fade-right">
-          <div class="section-title text-2xl md:text-3xl text-gray-800" id="skillsTitle">
-            <i data-lucide="cpu" class="w-7 h-7 text-blue-700"></i> <span>🛠️ Teknik Yetenekler</span>
-          </div>
+          <div class="section-title text-2xl md:text-3xl text-gray-800" id="skillsTitle"><i data-lucide="cpu" class="w-7 h-7 text-blue-700"></i> <span>Teknik Yetenekler</span></div>
           <ul id="skills" class="mt-3 space-y-2 pl-2 list-disc list-inside text-gray-700"></ul>
         </div>
 
         <!-- Languages -->
         <div data-aos="fade-left">
-          <div class="section-title text-2xl md:text-3xl text-gray-800" id="langTitle">
-            <i data-lucide="languages" class="w-7 h-7 text-blue-700"></i> <span>🌐 Dil Yeterlilikleri</span>
-          </div>
+          <div class="section-title text-2xl md:text-3xl text-gray-800" id="langTitle"><i data-lucide="languages" class="w-7 h-7 text-blue-700"></i> <span>Dil Yeterlilikleri</span></div>
           <ul id="languages" class="mt-3 space-y-2 pl-2 list-disc list-inside text-gray-700"></ul>
         </div>
 
         <!-- Certificates -->
         <div data-aos="fade-right">
-          <div class="section-title text-2xl md:text-3xl text-gray-800" id="certsTitle">
-            <i data-lucide="award" class="w-7 h-7 text-blue-700"></i> <span>📜 Sertifikalar</span>
-          </div>
+          <div class="section-title text-2xl md:text-3xl text-gray-800" id="certsTitle"><i data-lucide="award" class="w-7 h-7 text-blue-700"></i> <span>Sertifikalar</span></div>
           <ul id="certificates" class="mt-3 space-y-2 pl-2 list-disc list-inside text-gray-700"></ul>
         </div>
 
-        <!-- Projects (new section based on CV) -->
+        <!-- Projects -->
         <div data-aos="fade-up">
-          <div class="section-title text-2xl md:text-3xl text-gray-800" id="projectsTitle">
-            <i data-lucide="rocket" class="w-7 h-7 text-blue-700"></i> <span>🚀 Projeler</span>
-          </div>
+          <div class="section-title text-2xl md:text-3xl text-gray-800" id="projectsTitle"><i data-lucide="rocket" class="w-7 h-7 text-blue-700"></i> <span>Projeler</span></div>
           <ul id="projects" class="mt-3 space-y-2 pl-2 list-disc list-inside text-gray-700"></ul>
+        </div>
+
+        <!-- Theatre Plays (new) -->
+        <div data-aos="fade-up">
+          <div class="section-title text-2xl md:text-3xl text-gray-800" id="theatreTitle"><i data-lucide="clapperboard" class="w-7 h-7 text-blue-700"></i> <span>Tiyatro Oyunları</span></div>
+          <ul id="theatre" class="mt-3 space-y-2 pl-2 list-disc list-inside text-gray-700"></ul>
+        </div>
+
+        <!-- Favorite Links (Sevdiğim Sayfalar) -->
+        <div data-aos="fade-up">
+          <div class="section-title text-2xl md:text-3xl text-gray-800" id="favLinksTitle"><i data-lucide="heart" class="w-7 h-7 text-blue-700"></i> <span>Sevdiğim Sayfalar</span></div>
+          <ul id="favLinks" class="mt-3 space-y-2 pl-2 list-disc list-inside text-gray-700"></ul>
+        </div>
+
+        <!-- Live Calendar -->
+        <div data-aos="fade-up">
+          <div class="section-title text-2xl md:text-3xl text-gray-800" id="calendarTitle"><i data-lucide="calendar" class="w-7 h-7 text-blue-700"></i> <span>Güncel Takvim</span></div>
+          <div id="calendarContainer" class="mt-3 calendar"></div>
         </div>
 
         <!-- Contact -->
         <div data-aos="fade-up">
-          <div class="section-title text-2xl md:text-3xl text-gray-800" id="contactTitle">
-            <i data-lucide="mail" class="w-7 h-7 text-blue-700"></i> <span>📬 İletişim</span>
-          </div>
+          <div class="section-title text-2xl md:text-3xl text-gray-800" id="contactTitle"><i data-lucide="mail" class="w-7 h-7 text-blue-700"></i> <span>İletişim</span></div>
           <div id="contactButtons" class="flex flex-wrap gap-3 mt-4"></div>
         </div>
       </div>
@@ -161,25 +163,25 @@
 
   <!-- Footer -->
   <footer class="text-center text-gray-500 text-sm mt-8" data-aos="fade-up">
-    <p>© 2026 Makbule Özge Özler — Tüm hakları saklıdır. <span id="updateDate"></span></p>
+    <p>© 2026 Makbule Özge Özler — <span id="footerRights"></span> <span id="updateDate"></span></p>
   </footer>
 </div>
 
 <script>
-  // Translations extended with Projects section
+  // Translations (full with new sections)
   const translations = {
     tr: {
       name: "Makbule Özge Özler",
       title: "Araştırma Görevlisi | Web Geliştirici Adayı",
       quote: "Şu an GPU programlama ve gömülü sistemler üzerine çalışıyorum, bir yandan da web geliştirmeyi öğreniyorum.",
-      eduTitle: "🎓 Eğitim",
+      eduTitle: "Eğitim",
       education: [
         "<strong>İstanbul Teknik Üniversitesi</strong> – Bilgisayar Bilimleri (Doktora) – 2025-devam",
         "<strong>Yıldız Teknik Üniversitesi</strong> – Bilgisayar Mühendisliği (Doktora Hazırlık) – 2022-2025 (program tamamlanmadı)",
         "<strong>Galatasaray Üniversitesi</strong> – Endüstri Mühendisliği (Yüksek Lisans) – 2017-2020 (GPA: 3.5/4)",
         "<strong>Yeditepe Üniversitesi</strong> – Endüstri ve Sistem Mühendisliği (Lisans) – 2011-2016 (GPA: 2.84/4)"
       ],
-      expTitle: "💼 İş Deneyimi",
+      expTitle: "İş Deneyimi",
       experience: [
         "<span class='job-title'>Araştırma Görevlisi</span> – İstanbul Nişantaşı Üniversitesi (05/2025 – devam)",
         "<span class='job-title'>Graduate Project Student</span> – BSH Hausgeräte (01/2024 – 01/2025)",
@@ -189,20 +191,20 @@
         "<span class='job-title'>Araştırma ve Öğretim Asistanı</span> – İstanbul Kültür Üniversitesi (12/2019 – 08/2021)",
         "<span class='job-title'>Nicel Analist (Staj)</span> – Ewe Energy (02/2018 – 05/2018)"
       ],
-      skillsTitle: "🛠️ Teknik Yetenekler",
+      skillsTitle: "Teknik Yetenekler",
       skills: [
         "<strong>Programlama:</strong> C, C++, Python, JavaScript, MSSQL, MATLAB",
         "<strong>Veritabanı & Araçlar:</strong> Microsoft SQL Server, MongoDB, Git, Linux, ROS, Jira",
         "<strong>Optimizasyon & Simülasyon:</strong> GAMS, Xpress, Minitab, Arena, Weka",
         "<strong>Web & Diğer:</strong> HTML/CSS, XML/XSL, Autocad, Hyperion HFM, Gazebo"
       ],
-      langTitle: "🌐 Dil Yeterlilikleri",
+      langTitle: "Dil Yeterlilikleri",
       languages: [
         "<strong>Türkçe:</strong> Anadil",
         "<strong>İngilizce:</strong> C1 (TOEFL IBT 92/120 – Şubat 2025)",
         "<strong>Fransızca:</strong> B2 (DELF B2 – 60.5/100 – Kasım 2025)"
       ],
-      certsTitle: "📜 Sertifikalar",
+      certsTitle: "Sertifikalar",
       certificates: [
         "<a href='assets/pdf/SkillsCert20260402-31-wxjtik.pdf' target='_blank' class='text-blue-600 hover:underline'>MongoDB Overview: Core Concepts and Architecture</a>",
         "<a href='assets/pdf/Delf_B2_MakbuleOzgeOzler.pdf' target='_blank' class='text-blue-600 hover:underline'>DELF B2 (Fransızca)</a>",
@@ -213,33 +215,48 @@
         "Machine Learning School (S. İlker Birbil)",
         "Big Data Summer Academy (G Tech)"
       ],
-      projectsTitle: "🚀 Projeler",
+      projectsTitle: "Projeler",
       projects: [
         "<strong>Predictive Maintenance</strong> – Azure veri seti ile arıza tahmini (lojistik regresyon, KNN, %83 başarı)",
         "<strong>Advertisement Clicks Analysis</strong> – Tıklanma analizi, logistic regression (%90 başarı)",
         "<strong>Fall Detection with ANN</strong> – Yapay sinir ağları ile düşme tespiti (Galatasaray Üniversitesi)",
         "<strong>Hub Covering Flow Problem</strong> – Yüksek lisans tezi (kargo dağıtım ağı optimizasyonu)"
       ],
-      contactTitle: "📬 İletişim",
+      theatreTitle: "Tiyatro Oyunları",
+      theatre: [
+        "<strong>Haramiler</strong> – Yönetmen: Engin Alkan, Harbiye Muhsin Ertuğrul Sahnesi (24 Ocak 2026)<br><span class='text-gray-600 text-sm'>“Kostümlerin tasarımı ve enerji harikaydı.”</span>",
+        "<strong>Diksin: Büyük Şans</strong> – Yönetmen: Kemal Aydoğdu, Moda Sahnesi (30 Haziran 2025)<br><span class='text-gray-600 text-sm'>“İlginçti.”</span>",
+        "<strong>Babamı Kim Öldürdü?</strong> – Yönetmen: Kemal Aydoğdu, Moda Sahnesi (18 Haziran 2025)<br><span class='text-gray-600 text-sm'>“Düşündürücüydü.”</span>"
+      ],
+      favLinksTitle: "Sevdiğim Sayfalar",
+      favLinks: [
+        "<a href='https://sehir tiyatrolari.ibb.tr/' target='_blank' class='text-blue-600 hover:underline'>🏛 İBB Şehir Tiyatroları</a> – Güncel oyunlar ve biletleme",
+        "<a href='https://kultur.istanbul/' target='_blank' class='text-blue-600 hover:underline'>📚 Kültür İstanbul</a> – Sergiler, konserler ve festivaller",
+        "<a href='https://www.biletix.com/' target='_blank' class='text-blue-600 hover:underline'>🎫 Biletix</a> – Tiyatro ve etkinlik takvimi"
+      ],
+      calendarTitle: "Güncel Takvim",
+      contactTitle: "İletişim",
       contactButtons: [
         { text: "E-Posta Gönder", href: "mailto:mak.ozgeozler@gmail.com", class: "bg-blue-600 hover:bg-blue-700" },
         { text: "📄 CV'yi İndir", href: "assets/MakbuleOzge_Ozler_Cv10.pdf", download: true, class: "bg-emerald-600 hover:bg-emerald-700" },
         { text: "LinkedIn", href: "https://www.linkedin.com/in/makbuleozgeozler/", class: "bg-slate-700 hover:bg-slate-800" },
         { text: "GitHub", href: "https://github.com/ozgeozler93", class: "bg-gray-900 hover:bg-black" }
-      ]
+      ],
+      footerRights: "Tüm hakları saklıdır.",
+      updateDateText: "Son güncelleme: Nisan 2026"
     },
     en: {
       name: "Makbule Özge Özler",
       title: "Research Assistant | Web Developer Candidate",
       quote: "Currently working on GPU programming and embedded systems, while learning web development by tinkering with this site.",
-      eduTitle: "🎓 Education",
+      eduTitle: "Education",
       education: [
         "<strong>Istanbul Technical University</strong> – Computer Science (PhD) – 2025-present",
         "<strong>Yıldız Technical University</strong> – Computer Engineering (PhD Prep) – 2022-2025 (program not completed)",
         "<strong>Galatasaray University</strong> – Industrial Engineering (Master's) – 2017-2020 (GPA: 3.5/4)",
         "<strong>Yeditepe University</strong> – Industrial & Systems Engineering (Bachelor's) – 2011-2016 (GPA: 2.84/4)"
       ],
-      expTitle: "💼 Work Experience",
+      expTitle: "Work Experience",
       experience: [
         "<span class='job-title'>Research Assistant</span> – Istanbul Nişantaşı University (05/2025 – present)",
         "<span class='job-title'>Graduate Project Student</span> – BSH Hausgeräte (01/2024 – 01/2025)",
@@ -249,20 +266,20 @@
         "<span class='job-title'>Research & Teaching Assistant</span> – Istanbul Kültür University (12/2019 – 08/2021)",
         "<span class='job-title'>Quantitative Analyst (Intern)</span> – Ewe Energy (02/2018 – 05/2018)"
       ],
-      skillsTitle: "🛠️ Technical Skills",
+      skillsTitle: "Technical Skills",
       skills: [
         "<strong>Programming:</strong> C, C++, Python, JavaScript, MSSQL, MATLAB",
         "<strong>Database & Tools:</strong> Microsoft SQL Server, MongoDB, Git, Linux, ROS, Jira",
         "<strong>Optimization & Simulation:</strong> GAMS, Xpress, Minitab, Arena, Weka",
         "<strong>Web & Others:</strong> HTML/CSS, XML/XSL, Autocad, Hyperion HFM, Gazebo"
       ],
-      langTitle: "🌐 Language Proficiency",
+      langTitle: "Language Proficiency",
       languages: [
         "<strong>Turkish:</strong> Native",
         "<strong>English:</strong> C1 (TOEFL IBT 92/120 – Feb 2025)",
         "<strong>French:</strong> B2 (DELF B2 – 60.5/100 – Nov 2025)"
       ],
-      certsTitle: "📜 Certificates",
+      certsTitle: "Certificates",
       certificates: [
         "<a href='assets/pdf/SkillsCert20260402-31-wxjtik.pdf' target='_blank' class='text-blue-600 hover:underline'>MongoDB Overview: Core Concepts and Architecture</a>",
         "<a href='assets/pdf/Delf_B2_MakbuleOzgeOzler.pdf' target='_blank' class='text-blue-600 hover:underline'>DELF B2 (French)</a>",
@@ -273,33 +290,48 @@
         "Machine Learning School (S. İlker Birbil)",
         "Big Data Summer Academy (G Tech)"
       ],
-      projectsTitle: "🚀 Projects",
+      projectsTitle: "Projects",
       projects: [
         "<strong>Predictive Maintenance</strong> – Failure prediction with Azure dataset (Logistic Regression, KNN, 83% accuracy)",
         "<strong>Advertisement Clicks Analysis</strong> – Click analysis, logistic regression (90% accuracy)",
         "<strong>Fall Detection with ANN</strong> – Fall detection using artificial neural networks (Galatasaray University)",
         "<strong>Hub Covering Flow Problem</strong> – Master's thesis (cargo distribution network optimization)"
       ],
-      contactTitle: "📬 Contact",
+      theatreTitle: "Theatre Plays",
+      theatre: [
+        "<strong>Haramiler</strong> – Director: Engin Alkan, Harbiye Muhsin Ertuğrul Stage (24 Jan 2026)<br><span class='text-gray-600 text-sm'>“Costume design and energy were amazing.”</span>",
+        "<strong>Diksin: Büyük Şans</strong> – Director: Kemal Aydoğdu, Moda Stage (30 Jun 2025)<br><span class='text-gray-600 text-sm'>“Interesting.”</span>",
+        "<strong>Babamı Kim Öldürdü?</strong> – Director: Kemal Aydoğdu, Moda Stage (18 Jun 2025)<br><span class='text-gray-600 text-sm'>“Thought-provoking.”</span>"
+      ],
+      favLinksTitle: "Favorite Pages",
+      favLinks: [
+        "<a href='https://sehir tiyatrolari.ibb.tr/' target='_blank' class='text-blue-600 hover:underline'>🏛 Istanbul City Theatres</a> – Current plays and ticketing",
+        "<a href='https://kultur.istanbul/' target='_blank' class='text-blue-600 hover:underline'>📚 Culture Istanbul</a> – Exhibitions, concerts and festivals",
+        "<a href='https://www.biletix.com/' target='_blank' class='text-blue-600 hover:underline'>🎫 Biletix</a> – Theatre and event calendar"
+      ],
+      calendarTitle: "Live Calendar",
+      contactTitle: "Contact",
       contactButtons: [
         { text: "Send Email", href: "mailto:mak.ozgeozler@gmail.com", class: "bg-blue-600 hover:bg-blue-700" },
         { text: "📄 Download CV", href: "assets/MakbuleOzge_Ozler_Cv10.pdf", download: true, class: "bg-emerald-600 hover:bg-emerald-700" },
         { text: "LinkedIn", href: "https://www.linkedin.com/in/makbuleozgeozler/", class: "bg-slate-700 hover:bg-slate-800" },
         { text: "GitHub", href: "https://github.com/ozgeozler93", class: "bg-gray-900 hover:bg-black" }
-      ]
+      ],
+      footerRights: "All rights reserved.",
+      updateDateText: "Last updated: April 2026"
     },
     fr: {
       name: "Makbule Özge Özler",
       title: "Assistante de Recherche | Candidate Développeuse Web",
       quote: "Actuellement, je travaille sur la programmation GPU et les systèmes embarqués, tout en apprenant le développement web en bricolant ce site.",
-      eduTitle: "🎓 Formation",
+      eduTitle: "Formation",
       education: [
         "<strong>Université Technique d'Istanbul</strong> – Informatique (Doctorat) – 2025-présent",
         "<strong>Université Technique de Yıldız</strong> – Génie Informatique (Préparation Doctorat) – 2022-2025 (programme non terminé)",
         "<strong>Université Galatasaray</strong> – Génie Industriel (Master) – 2017-2020 (Moyenne: 3.5/4)",
         "<strong>Université Yeditepe</strong> – Génie Industriel et Systèmes (Licence) – 2011-2016 (Moyenne: 2.84/4)"
       ],
-      expTitle: "💼 Expérience Professionnelle",
+      expTitle: "Expérience Professionnelle",
       experience: [
         "<span class='job-title'>Assistante de Recherche</span> – Université İstanbul Nişantaşı (05/2025 – présent)",
         "<span class='job-title'>Étudiante Projet Graduate</span> – BSH Hausgeräte (01/2024 – 01/2025)",
@@ -309,20 +341,20 @@
         "<span class='job-title'>Assistante de Recherche et Enseignement</span> – Université İstanbul Kültür (12/2019 – 08/2021)",
         "<span class='job-title'>Analyste Quantitative (Stage)</span> – Ewe Energy (02/2018 – 05/2018)"
       ],
-      skillsTitle: "🛠️ Compétences Techniques",
+      skillsTitle: "Compétences Techniques",
       skills: [
         "<strong>Programmation:</strong> C, C++, Python, JavaScript, MSSQL, MATLAB",
         "<strong>Base de données & Outils:</strong> Microsoft SQL Server, MongoDB, Git, Linux, ROS, Jira",
         "<strong>Optimisation & Simulation:</strong> GAMS, Xpress, Minitab, Arena, Weka",
         "<strong>Web & Autres:</strong> HTML/CSS, XML/XSL, Autocad, Hyperion HFM, Gazebo"
       ],
-      langTitle: "🌐 Compétences Linguistiques",
+      langTitle: "Compétences Linguistiques",
       languages: [
         "<strong>Turc:</strong> Langue maternelle",
         "<strong>Anglais:</strong> C1 (TOEFL IBT 92/120 – Fév 2025)",
         "<strong>Français:</strong> B2 (DELF B2 – 60.5/100 – Nov 2025)"
       ],
-      certsTitle: "📜 Certificats",
+      certsTitle: "Certificats",
       certificates: [
         "<a href='assets/pdf/SkillsCert20260402-31-wxjtik.pdf' target='_blank' class='text-blue-600 hover:underline'>MongoDB Overview: Core Concepts and Architecture</a>",
         "<a href='assets/pdf/Delf_B2_MakbuleOzgeOzler.pdf' target='_blank' class='text-blue-600 hover:underline'>DELF B2 (Français)</a>",
@@ -333,24 +365,69 @@
         "École Machine Learning (S. İlker Birbil)",
         "Académie d'Été Big Data (G Tech)"
       ],
-      projectsTitle: "🚀 Projets",
+      projectsTitle: "Projets",
       projects: [
         "<strong>Maintenance Prédictive</strong> – Prédiction de panne avec dataset Azure (régression logistique, KNN, 83% succès)",
         "<strong>Analyse des Clics Publicitaires</strong> – Analyse des clics, régression logistique (90% succès)",
         "<strong>Détection de Chute avec RNA</strong> – Détection de chute par réseaux de neurones (Université Galatasaray)",
         "<strong>Problème de Flux de Couverture Hub</strong> – Mémoire de master (optimisation réseau de distribution)"
       ],
-      contactTitle: "📬 Contact",
+      theatreTitle: "Pièces de Théâtre",
+      theatre: [
+        "<strong>Haramiler</strong> – Metteur en scène: Engin Alkan, Scène Harbiye Muhsin Ertuğrul (24 janv. 2026)<br><span class='text-gray-600 text-sm'>“La conception des costumes et l'énergie étaient formidables.”</span>",
+        "<strong>Diksin: Büyük Şans</strong> – Metteur en scène: Kemal Aydoğdu, Scène Moda (30 juin 2025)<br><span class='text-gray-600 text-sm'>“Intéressant.”</span>",
+        "<strong>Babamı Kim Öldürdü?</strong> – Metteur en scène: Kemal Aydoğdu, Scène Moda (18 juin 2025)<br><span class='text-gray-600 text-sm'>“Plein de réflexion.”</span>"
+      ],
+      favLinksTitle: "Pages Préférées",
+      favLinks: [
+        "<a href='https://sehir tiyatrolari.ibb.tr/' target='_blank' class='text-blue-600 hover:underline'>🏛 Théâtres Municipaux d'Istanbul</a> – Pièces actuelles et billetterie",
+        "<a href='https://kultur.istanbul/' target='_blank' class='text-blue-600 hover:underline'>📚 Culture Istanbul</a> – Expositions, concerts et festivals",
+        "<a href='https://www.biletix.com/' target='_blank' class='text-blue-600 hover:underline'>🎫 Biletix</a> – Calendrier théâtre et événements"
+      ],
+      calendarTitle: "Calendrier",
+      contactTitle: "Contact",
       contactButtons: [
         { text: "Envoyer un E-mail", href: "mailto:mak.ozgeozler@gmail.com", class: "bg-blue-600 hover:bg-blue-700" },
         { text: "📄 Télécharger CV", href: "assets/MakbuleOzge_Ozler_Cv10.pdf", download: true, class: "bg-emerald-600 hover:bg-emerald-700" },
         { text: "LinkedIn", href: "https://www.linkedin.com/in/makbuleozgeozler/", class: "bg-slate-700 hover:bg-slate-800" },
         { text: "GitHub", href: "https://github.com/ozgeozler93", class: "bg-gray-900 hover:bg-black" }
-      ]
+      ],
+      footerRights: "Tous droits réservés.",
+      updateDateText: "Dernière mise à jour : avril 2026"
     }
   };
 
   let currentLang = localStorage.getItem("lang") || "tr";
+
+  function renderCalendar() {
+    const now = new Date();
+    const year = now.getFullYear();
+    const month = now.getMonth();
+    const firstDay = new Date(year, month, 1).getDay();
+    const daysInMonth = new Date(year, month + 1, 0).getDate();
+    const today = now.getDate();
+    const monthNames = currentLang === 'tr' ? ['Ocak', 'Şubat', 'Mart', 'Nisan', 'Mayıs', 'Haziran', 'Temmuz', 'Ağustos', 'Eylül', 'Ekim', 'Kasım', 'Aralık'] :
+                      currentLang === 'fr' ? ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'] :
+                      ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    const dayNames = currentLang === 'tr' ? ['Pzt', 'Sal', 'Çar', 'Per', 'Cum', 'Cmt', 'Paz'] :
+                     currentLang === 'fr' ? ['Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam', 'Dim'] :
+                     ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+    let html = `<div class="text-center font-semibold mb-2">${monthNames[month]} ${year}</div>`;
+    html += '<table><thead><tr>';
+    dayNames.forEach(d => html += `<th class="text-gray-500 text-xs">${d}</th>`);
+    html += '</tr></thead><tbody><tr>';
+    let startOffset = (firstDay + 6) % 7; // convert to Monday first
+    for (let i = 0; i < startOffset; i++) html += '<td></td>';
+    for (let d = 1; d <= daysInMonth; d++) {
+      if ((startOffset + d - 1) % 7 === 0 && d !== 1) html += '</tr><tr>';
+      const isToday = (d === today && now.getMonth() === month && now.getFullYear() === year);
+      html += `<td class="${isToday ? 'today' : ''}">${d}</td>`;
+    }
+    const remaining = 7 - ((startOffset + daysInMonth) % 7);
+    if (remaining < 7) for (let i = 0; i < remaining; i++) html += '<td></td>';
+    html += '</tr></tbody></table>';
+    document.getElementById("calendarContainer").innerHTML = html;
+  }
 
   function setLanguage(lang) {
     currentLang = lang;
@@ -360,13 +437,20 @@
     document.getElementById("name").textContent = t.name;
     document.getElementById("title").textContent = t.title;
     document.getElementById("quote").textContent = t.quote;
-    document.getElementById("eduTitle").innerHTML = `<i data-lucide="graduation-cap" class="w-7 h-7 text-blue-700"></i> <span>${t.eduTitle}</span>`;
-    document.getElementById("expTitle").innerHTML = `<i data-lucide="briefcase" class="w-7 h-7 text-blue-700"></i> <span>${t.expTitle}</span>`;
-    document.getElementById("skillsTitle").innerHTML = `<i data-lucide="cpu" class="w-7 h-7 text-blue-700"></i> <span>${t.skillsTitle}</span>`;
-    document.getElementById("langTitle").innerHTML = `<i data-lucide="languages" class="w-7 h-7 text-blue-700"></i> <span>${t.langTitle}</span>`;
-    document.getElementById("certsTitle").innerHTML = `<i data-lucide="award" class="w-7 h-7 text-blue-700"></i> <span>${t.certsTitle}</span>`;
-    document.getElementById("projectsTitle").innerHTML = `<i data-lucide="rocket" class="w-7 h-7 text-blue-700"></i> <span>${t.projectsTitle}</span>`;
-    document.getElementById("contactTitle").innerHTML = `<i data-lucide="mail" class="w-7 h-7 text-blue-700"></i> <span>${t.contactTitle}</span>`;
+
+    const updateTitle = (id, iconName, text) => {
+      document.getElementById(id).innerHTML = `<i data-lucide="${iconName}" class="w-7 h-7 text-blue-700"></i> <span>${text}</span>`;
+    };
+    updateTitle("eduTitle", "graduation-cap", t.eduTitle);
+    updateTitle("expTitle", "briefcase", t.expTitle);
+    updateTitle("skillsTitle", "cpu", t.skillsTitle);
+    updateTitle("langTitle", "languages", t.langTitle);
+    updateTitle("certsTitle", "award", t.certsTitle);
+    updateTitle("projectsTitle", "rocket", t.projectsTitle);
+    updateTitle("theatreTitle", "clapperboard", t.theatreTitle);
+    updateTitle("favLinksTitle", "heart", t.favLinksTitle);
+    updateTitle("calendarTitle", "calendar", t.calendarTitle);
+    updateTitle("contactTitle", "mail", t.contactTitle);
 
     document.getElementById("education").innerHTML = t.education.map(i => `<li>${i}</li>`).join("");
     document.getElementById("experience").innerHTML = t.experience.map(i => `<li>${i}</li>`).join("");
@@ -374,6 +458,8 @@
     document.getElementById("languages").innerHTML = t.languages.map(i => `<li>${i}</li>`).join("");
     document.getElementById("certificates").innerHTML = t.certificates.map(i => `<li>${i}</li>`).join("");
     document.getElementById("projects").innerHTML = t.projects.map(i => `<li>${i}</li>`).join("");
+    document.getElementById("theatre").innerHTML = t.theatre.map(i => `<li>${i}</li>`).join("");
+    document.getElementById("favLinks").innerHTML = t.favLinks.map(i => `<li>${i}</li>`).join("");
 
     const contactDiv = document.getElementById("contactButtons");
     contactDiv.innerHTML = "";
@@ -392,8 +478,11 @@
       else btn.classList.remove("active");
     });
 
-    // Reinitialize Lucide icons after DOM changes
+    document.getElementById("footerRights").textContent = t.footerRights;
+    document.getElementById("updateDate").textContent = t.updateDateText;
+
     lucide.createIcons();
+    renderCalendar(); // refresh calendar for month names / day names
   }
 
   document.querySelectorAll(".lang-btn").forEach(btn => {
@@ -403,9 +492,6 @@
   setLanguage(currentLang);
   AOS.init({ duration: 600, once: true });
   lucide.createIcons();
-
-  // Set current year in footer
-  document.getElementById("updateDate").innerHTML = ` — Son güncelleme: Nisan 2026`;
 </script>
 </body>
 </html>
