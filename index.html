@@ -1,448 +1,66 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-
-<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&family=Indie+Flower&display=swap" rel="stylesheet">
-  <!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-VTMK9VMZTH"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){ dataLayer.push(arguments); }
-  gtag('js', new Date());
-  gtag('config', 'G-VTMK9VMZTH');
-</script>
-
-
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Makbule Özge Özler</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Makbule Özge Özler | CV</title>
   <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-    #weatherMap iframe {
-      max-width: 100%;
-      border-radius: 0.75rem;
-    }
-
-    @media (max-width: 640px) {
-      #weatherMap iframe {
-        height: 220px;
-      }
-    }
+  <style>
+    body { background: #f3f4f6; }
+    .card { max-width: 800px; margin: 2rem auto; background: white; border-radius: 1.5rem; box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1); padding: 2rem; }
+    .section-title { font-size: 1.5rem; font-weight: 700; margin-top: 1.5rem; margin-bottom: 0.75rem; border-left: 4px solid #3b82f6; padding-left: 0.75rem; }
   </style>
-
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-
-<script src="https://unpkg.com/lucide@latest"></script>
-
-<div class="flex gap-4 justify-center mt-6" data-aos="fade-up">
-  <span lucide="GitHub" class="w-6 h-6 text-gray-700 hover:text-black"></span>
-  <span lucide="LinkedIn" class="w-6 h-6 text-blue-700 hover:text-blue-900"></span>
-  <span lucide="Twitter" class="w-6 h-6 text-blue-500 hover:text-blue-700"></span>
-</div>
-
-
 </head>
+<body class="font-sans">
 
-
-<body class="bg-gray-100 text-gray-800 font-sans">
-
-
-
-<!-- Mini Sözlük Sabit Sağ Kenar -->
-<div id="floatingDict" class="fixed right-4 bottom-4 bg-white p-4 shadow-lg rounded-lg w-64 z-50 transition-all duration-300">
-  <div class="flex justify-between items-center mb-2">
-    <h4 class="font-semibold text-center w-full">🧠 Mini Sözlük</h4>
-    <button onclick="toggleDict()" class="text-gray-500 hover:text-black font-bold px-2 text-xl" id="dictMinBtn">−</button>
-  </div>
-  
-  <div id="floatingDict" class="fixed right-4 bottom-4 bg-white p-4 shadow-2xl rounded-2xl w-64 z-[9998] transition-all duration-300 border border-blue-100">
-    <div class="flex justify-between items-center mb-2 border-b pb-2">
-      <h4 class="font-bold text-blue-600 text-sm">🧠 Mini Sözlük</h4>
-      <button onclick="toggleDict()" id="dictToggleBtn" class="bg-gray-100 hover:bg-gray-200 rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold">−</button>
-    </div>
-    
-    <div id="dictContent">
-      <select id="dictFrom" class="w-full mb-1 px-2 py-1 border rounded text-xs italic">...</select>
-      <input type="text" id="dictInput" class="w-full px-2 py-1 border rounded mb-2 text-sm" placeholder="Kelime..." />
-      <button onclick="translateWord()" class="bg-blue-500 text-white py-1 rounded w-full text-xs font-semibold">Çevir</button>
-      <p id="dictResult" class="text-xs mt-2 text-gray-600 italic"></p>
+<div class="card">
+  <!-- Profil -->
+  <div class="text-center">
+    <img src="assets/MakbuleOzge_Ozler.png" alt="Profil" class="w-32 h-32 mx-auto rounded-full border-4 border-blue-200 shadow-md mb-4">
+    <h1 class="text-3xl font-bold">Makbule Özge Özler</h1>
+    <h2 class="text-xl text-gray-600 mt-1">Araştırma Görevlisi | Web Geliştirici Adayı</h2>
+    <div class="bg-yellow-50 border-l-4 border-yellow-400 p-3 mt-4 text-sm italic text-gray-700">
+      "Şu an GPU programlama ve gömülü sistemler üzerine çalışıyorum, bir yandan da web geliştirmeyi öğreniyorum."
     </div>
   </div>
 
-  <div class="fixed top-4 right-4 z-[9999] flex gap-2 bg-white/80 backdrop-blur-md p-2 rounded-full shadow-lg border border-gray-200">
-    <button onclick="changeLanguage('tr')" class="px-3 py-1 rounded-full hover:bg-gray-200 transition-all text-sm font-bold">🇹🇷 TR</button>
-    <button onclick="changeLanguage('en')" class="px-3 py-1 rounded-full hover:bg-gray-200 transition-all text-sm font-bold">🇬🇧 EN</button>
-    <button onclick="changeLanguage('fr')" class="px-3 py-1 rounded-full hover:bg-gray-200 transition-all text-sm font-bold">🇫🇷 FR</button>
-  </div>
+  <!-- Eğitim -->
+  <div class="section-title">🎓 Eğitim</div>
+  <ul class="list-disc pl-6 space-y-1">
+    <li><strong>Yıldız Teknik Üniversitesi</strong> - Bilgisayar Mühendisliği (Yüksek Lisans) - 2020-2023</li>
+    <li><strong>XYZ Üniversitesi</strong> - Bilgisayar Mühendisliği (Lisans) - 2015-2020</li>
+  </ul>
 
-<div id="weatherWidget" class="text-center mt-4">
-  <!-- Windy Harita -->
-  <div id="weatherMap" class="mt-4 rounded-lg overflow-hidden shadow-md">
-  <iframe 
-    id="windyIframe"
-    width="100%" 
-    height="280" 
-    src="https://embed.windy.com/embed2.html?lat=41.015&lon=28.979&detailLat=41.015&detailLon=28.979&zoom=7&level=surface&overlay=wind&product=ecmwf&menu=&message=true&marker=true&calendar=now&pressure=&type=map&location=coordinates&detail=true&metricWind=default&metricTemp=%C2%B0C&radarRange=-1"
-    frameborder="0">
-  </iframe>
+  <!-- İş Deneyimi -->
+  <div class="section-title">💼 İş Deneyimi</div>
+  <ul class="list-disc pl-6 space-y-1">
+    <li><strong>Araştırma Görevlisi</strong> - YTÜ (2023-devam)</li>
+    <li><strong>Stajyer Yazılım Geliştirici</strong> - ABC Teknoloji (2022)</li>
+  </ul>
+
+  <!-- Yetenekler -->
+  <div class="section-title">🛠️ Teknik Yetenekler</div>
+  <ul class="list-disc pl-6 space-y-1">
+    <li>C, C++, Python, JavaScript</li>
+    <li>MongoDB, SQL, Git, Linux</li>
+    <li>GPU Programlama (CUDA)</li>
+  </ul>
+
+  <!-- Sertifikalar -->
+  <div class="section-title">📜 Sertifikalar</div>
+  <ul class="list-disc pl-6 space-y-1">
+    <li><a href="assets/pdf/SkillsCert20260402-31-wxjtik.pdf" target="_blank" class="text-blue-600 hover:underline">MongoDB Overview: Core Concepts and Architecture</a></li>
+  </ul>
+
+  <!-- İletişim -->
+  <div class="section-title">📬 İletişim</div>
+  <div class="flex flex-wrap gap-3 mt-2">
+    <a href="mailto:mak.ozgeozler@gmail.com" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">E-Posta Gönder</a>
+    <a href="assets/cv.pdf" download class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">📄 CV'yi İndir</a>
+    <a href="https://www.linkedin.com/in/makbuleozgeozler/" target="_blank" class="bg-gray-800 text-white px-4 py-2 rounded hover:bg-gray-700">LinkedIn</a>
+    <a href="https://github.com/ozgeozler93" target="_blank" class="bg-black text-white px-4 py-2 rounded hover:bg-gray-900">GitHub</a>
+  </div>
 </div>
-
-
-  <label for="citySelect" class="block text-lg font-semibold text-gray-700 mb-1">🌤️ Hava Durumu:</label>
-  <select id="citySelect" class="px-2 py-1 border rounded bg-white shadow-sm">
-    <option value="Istanbul">İstanbul</option>
-    <option value="Ankara">Ankara</option>
-    <option value="Izmir">İzmir</option>
-    <option value="Paris">Paris</option>
-    <option value="New York">New York</option>
-    <option value="Tokyo">Tokyo</option>
-  </select>
-  <div id="weatherDisplay" class="mt-2 text-sm text-gray-800"></div>
-</div>
-
-
-
-  <div class="max-w-3xl mx-auto text-center p-6 bg-white shadow-lg rounded-lg">
-    <img src="assets/MakbuleOzge_Ozler.png" alt="Profil Fotoğrafı"
-         class="w-32 h-32 mx-auto rounded-full border-4 border-blue-200 shadow-md mb-4"/>
-
-    <h1 class="text-3xl font-bold mb-1" data-i18n="name">Makbule Özge Özler</h1>
-    <h2 class="text-xl text-gray-600 mb-4" data-i18n="title">Araştırma Görevlisi | Web Geliştirici Adayı</h2>
-
-    <p data-i18n="intro1" class="mb-2"></p>
-    <p data-i18n="intro2" class="mb-4"></p>
-    <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 mb-6 italic text-sm text-gray-700 shadow-sm">
-    "Şu an GPU programlama ve gömülü sistemler üzerine çalışıyorum, bir yandan da bu siteyi kurcalayarak web geliştirmeyi öğreniyorum."
-    </div>
-
-    <div class="text-left">
-      <h3 class="text-2xl font-semibold mt-6 mb-2" data-i18n="educationTitle">Eğitim</h3>
-      <div id="education" class="pl-4"></div>
-
-      <h3 class="text-2xl font-semibold mt-6 mb-2" data-i18n="experienceTitle">İş Deneyimi</h3>
-      <div data-aos="fade-up" id="experience" class="pl-4"></div>
-
-      <h3 class="text-2xl font-semibold mt-6 mb-2" data-i18n="skillsTitle">Teknik Yetenekler</h3>
-      <div id="skills" class="pl-4"></div>
-
-      <h3 class="text-2xl font-semibold mt-6 mb-2" data-i18n="interestsTitle">İlgi Alanları & Gönüllülük</h3>
-      <div id="interests" class="pl-4"></div>
-
-      <h3 class="text-2xl font-semibold mt-6 mb-2" data-i18n="contactTitle">İletişim</h3>
-      <div class="flex flex-wrap gap-3 mt-2">
-        <a href="mailto:mak.ozgeozler@gmail.com"
-           class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
-           data-i18n="emailBtn">E-Posta Gönder</a>
-        <a href="assets/cv.pdf" download
-           class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">📄 CV'yi indir</a>
-        <a href="https://www.linkedin.com/in/makbuleozgeozler/"
-           class="bg-gray-800 text-white px-4 py-2 rounded hover:bg-gray-700"
-           target="_blank" rel="noopener">LinkedIn</a>
-        <a href="https://github.com/ozgeozler93"
-           class="bg-black text-white px-4 py-2 rounded hover:bg-gray-900"
-           target="_blank" rel="noopener">GitHub</a>
-
-
-      </div>
-    </div>
-  </div>
-
-
-
-<script src="lang.js"></script>
-<script>
-
-function changeLanguage(lang) {
-  localStorage.setItem("lang", lang);
-
-  // Tüm metinleri güncelle
-  document.querySelectorAll("[data-i18n]").forEach(el => {
-    const key = el.getAttribute("data-i18n");
-    if (translations[lang][key]) {
-      el.textContent = translations[lang][key];
-    }
-  });
-
-  // Liste içeriklerini güncelle
-  document.getElementById("education").innerHTML = translations[lang].educationList;
-  document.getElementById("experience").innerHTML = translations[lang].experienceList;
-  document.getElementById("skills").innerHTML = translations[lang].skillsList;
-  document.getElementById("interests").innerHTML = translations[lang].interestList;
-
-  // Sayfa başlığını güncelle
-  document.title = translations[lang].name;
-
-  // Aktif dil butonunu vurgula
-  document.querySelectorAll("button").forEach(btn => {
-    if (btn.textContent.includes(lang.toUpperCase())) {
-      btn.classList.add("bg-blue-600", "text-white");
-      btn.classList.remove("bg-white", "text-gray-800");
-    } else {
-      btn.classList.remove("bg-blue-600", "text-white");
-      btn.classList.add("bg-white", "text-gray-800");
-    }
-  });
-
-  // Placeholder'ları çevir
-  document.querySelectorAll("[data-i18n-placeholder]").forEach(el => {
-    const key = el.getAttribute("data-i18n-placeholder");
-    if (translations[lang][key]) {
-      el.setAttribute("placeholder", translations[lang][key]);
-    }
-  });
-
-  // Form mesajı ve reset
-  const contactForm = document.getElementById('contactForm');
-  if (contactForm) {
-    contactForm.addEventListener('submit', e => {
-      e.preventDefault();
-      document.getElementById('formMsg').textContent = translations[lang].formSent;
-      contactForm.reset();
-    }, { once: true });
-  }
-}
-
-
-</script>
-
-
-<script>
-  const apiKey = "580b3076ca701a2dd2b6eb503671f312";
-
-const cityCoordinates = {
-  Istanbul: { lat: 41.015, lon: 28.979 },
-  Ankara: { lat: 39.93, lon: 32.86 },
-  Izmir: { lat: 38.42, lon: 27.14 },
-  Paris: { lat: 48.85, lon: 2.35 },
-  "New York": { lat: 40.71, lon: -74.01 },
-  Tokyo: { lat: 35.68, lon: 139.69 }
-};
-
-function updateMap(city) {
-  console.log("🗺️ updateMap çağrıldı:", city);
-  const coords = cityCoordinates[city];
-  if (!coords) return;
-
-  const { lat, lon } = coords;
-  const mapContainer = document.getElementById("weatherMap");
-
-  // Önce iframe'i kaldır
-  const oldIframe = document.getElementById("windyIframe");
-  if (oldIframe) oldIframe.remove();
-
-  // Yeni iframe oluştur
-  const iframe = document.createElement("iframe");
-  iframe.id = "windyIframe";
-  iframe.width = "100%";
-  iframe.height = "280";
-  iframe.frameBorder = "0";
-
-    // Cache buster (tarih saat)
-    const timestamp = new Date().getTime();
-
-    iframe.src = `https://embed.windy.com/embed2.html?lat=${lat}&lon=${lon}&detailLat=${lat}&detailLon=${lon}&zoom=7&level=surface&overlay=wind&product=ecmwf&menu=&message=true&marker=true&calendar=now&pressure=&type=map&location=coordinates&detail=true&metricWind=default&metricTemp=%C2%B0C&radarRange=-1&_=${timestamp}`;
-
-
-  // Haritayı yeniden ekle
-  mapContainer.appendChild(iframe);
-}
-
-
-async function getWeather(city) {
-  console.log("🌤️ getWeather çağrıldı:", city);
-  const display = document.getElementById("weatherDisplay");
-  display.innerHTML = "⏳ Yükleniyor...";
-
-  try {
-    const response = await fetch(
-      `https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(city)}&units=metric&appid=${apiKey}&lang=tr`
-    );
-
-    const data = await response.json();
-    console.log("🌤️ Veri:", data);
-
-    if (data.cod !== 200) throw new Error(data.message);
-
-    const temperature = data.main.temp;
-    const description = data.weather[0].description;
-    const icon = data.weather[0].icon;
-
-    display.innerHTML = `
-      <div class="flex justify-center items-center gap-2">
-        <img src="https://openweathermap.org/img/wn/${icon}.png" alt="${description}" class="w-6 h-6" />
-        <span>${city}: ${temperature}°C - ${description}</span>
-      </div>`;
-  } catch (error) {
-    console.error("❌ Hava durumu hatası:", error);
-    display.innerHTML = "❌ Hava durumu alınamadı.";
-  }
-}
-
-
-
-
-document.addEventListener("DOMContentLoaded", function () {
-  let lang = localStorage.getItem("lang");
-
-  // Eğer localStorage yoksa tarayıcı diline bak
-  if (!lang) {
-    const browserLang = navigator.language || navigator.userLanguage;
-    if (browserLang.startsWith("tr")) lang = "tr";
-    else if (browserLang.startsWith("fr")) lang = "fr";
-    else lang = "en";
-  }
-
-  changeLanguage(lang);
-
-  const citySelect = document.getElementById("citySelect");
-  console.log("🔽 citySelect bulundu mu:", !!citySelect);
-
-
-  if (citySelect) {
-    // Varsayılan seçimi yakalayarak düzgün başlat
-    const selectedCity = citySelect.options[citySelect.selectedIndex].value;
-    getWeather(selectedCity);
-    updateMap(selectedCity);
-
-    citySelect.addEventListener("change", function () {
-      const selected = this.options[this.selectedIndex].value;
-      getWeather(selected);
-      updateMap(selected);
-
-    });
-  } else {
-    console.error("Şehir seçimi elementi bulunamadı!");
-  }
-}
-);
-
-
-
-</script>
-
-
-<section id="plays" data-aos="fade-up" class="max-w-3xl mx-auto p-6 bg-white rounded-lg shadow-md mt-6 border-t-4 border-pink-300">
-  <h3 class="text-2xl font-semibold mb-4 flex items-center gap-2">
-    <span>🎭</span> <span data-i18n="playTitle">En Son İzlediğim Tiyatro Oyunları</span>
-  </h3>
-  <div class="grid gap-4">
-    <div class="p-3 bg-gray-50 rounded-md border border-dashed border-gray-300">
-       <span class="font-bold text-pink-600">Haramiler</span> - Yonetmen: Engin Alkan, Harbiye Muhsin Ertuğrul Sahnesi (24 Ocak 2026)
-       <p class="text-xs text-gray-500 mt-1 italic">"Kostumlerin tasarımı ve enerji harikaydı."</p>
-    </div>
-    <div class="p-3 bg-gray-50 rounded-md border border-dashed border-gray-300">
-       <span class="font-bold text-pink-600">Diksin: Buyuk Sans</span> – Yonetmen: Kemal Aydoğdu, Moda Sahnesi (30 Haziran 2025)
-       <p class="text-xs text-gray-500 mt-1 italic">"Ilgincti."</p>
-    </div>
-    <div class="p-3 bg-gray-50 rounded-md border border-dashed border-gray-300">
-       <span class="font-bold text-pink-600"> Babami Kim Oldurdu?</span> – Yonetmen: Kemal Aydoğdu, Moda Sahnesi (18 Haziran 2025)
-       <p class="text-xs text-gray-500 mt-1 italic">"Dusundurucuydu."</p>
-    </div>
-    </div>
-</section>
-
-
-
-<section id="contact" class="max-w-xl mx-auto p-6 bg-white rounded shadow-md mt-12" data-aos="fade-up">
-<h3 class="text-2xl font-semibold mb-4 flex items-center gap-2"><span>📬</span> <span data-i18n="contactFormTitle">İletişim Formu</span></h3>
-  <form action="https://formsubmit.co/mak.ozgeozler@gmail.com" method="POST" id="contactForm" class="space-y-4">
-    
-      <!-- Ayarlar -->
-  <input type="hidden" name="_captcha" value="false">
-  <input type="hidden" name="_next" value="https://ozgeozler93.github.io/#contact">
-
-    <input type="text" name="name" data-i18n-placeholder="formName" placeholder="Adınız" class="w-full px-3 py-2 border rounded" required>
-    <input type="email" name="email" data-i18n-placeholder="formEmail" placeholder="E‑posta" class="w-full px-3 py-2 border rounded" required>
-    <textarea name="message" rows="4" data-i18n-placeholder="formMessage" placeholder="Mesajınız…" class="w-full px-3 py-2 border rounded" required></textarea>
-    <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600" data-i18n="formSubmitBtn">
-      Gönder
-    </button>
-  </form>
-  <p id="formMsg" class="text-sm mt-2"></p>
-</section>
-
-
-
-<script>
-function translateWord() {
-  const from = document.getElementById("dictFrom").value;
-  const to = document.getElementById("dictTo").value;
-  const text = document.getElementById("dictInput").value;
-  const result = document.getElementById("dictResult");
-  if (!text) return;
-  fetch("https://libretranslate.com/translate", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ q: text, source: from, target: to, format: "text" })
-  })
-  .then(res => res.json())
-  .then(data => {
-    result.textContent = `📘 ${data.translatedText}`;
-  })
-  .catch(() => {
-    result.textContent = "❌ Çeviri başarısız oldu.";
-  });
-}
-</script>
-
-
-
-<script>
-  AOS.init({ duration: 600, once: true });
-</script>
-
-<script>
-  document.addEventListener("DOMContentLoaded", function() {
-    lucide.createIcons(); // Yeni versiyonlarda replace yerine createIcons tercih edilebiliyor
-  });
-
-
-  function toggleDict() {
-    const content = document.getElementById("dictContent");
-    const dictDiv = document.getElementById("floatingDict");
-    const btn = document.getElementById("dictMinBtn");
-
-    if (content.style.display === "none") {
-      content.style.display = "block";
-      dictDiv.style.width = "16rem"; // Eski genişliğine dön (w-64)
-      btn.textContent = "−";
-    } else {
-      content.style.display = "none";
-      dictDiv.style.width = "120px"; // Küçüldüğünde genişlik
-      btn.textContent = "+";
-    }
-  }
-
-
-  function toggleDict() {
-  const content = document.getElementById("dictContent");
-  const dictContainer = document.getElementById("floatingDict");
-  const btn = document.getElementById("dictToggleBtn");
-
-  if (content.classList.contains("hidden")) {
-    content.classList.remove("hidden");
-    dictContainer.classList.remove("w-16", "h-12");
-    dictContainer.classList.add("w-64");
-    btn.textContent = "−";
-  } else {
-    content.classList.add("hidden");
-    dictContainer.classList.remove("w-64");
-    dictContainer.classList.add("w-32", "h-12"); // Sadece başlık görünecek kadar küçülür
-    btn.textContent = "+";
-  }
-}
-</script>
-
 
 </body>
-
-
-
-
-
 </html>
-
-
-
